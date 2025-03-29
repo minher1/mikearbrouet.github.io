@@ -14,6 +14,12 @@
       background-color: #121212;
       color: #ffffff;
       scroll-behavior: smooth;
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      width: 100%;
+      max-width: 960px;
     }
     header {
       background: url('hero-background.jpg') center/cover no-repeat;
@@ -45,8 +51,6 @@
     }
     section {
       padding: 80px 20px;
-      max-width: 900px;
-      margin: 0 auto;
     }
     h2 {
       font-size: 2rem;
@@ -115,63 +119,65 @@
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="Mike Arbrouet Logo" class="logo-img" />
-    <h1>Mike Arbrouet</h1>
-    <p>Speaker. Mentor. Consultant. Helping individuals and organizations thrive with clarity, confidence, and strategy.</p>
-    <a href="#contact" class="cta">Book Me</a>
-  </header>
+  <div class="container">
+    <header>
+      <img src="logo.png" alt="Mike Arbrouet Logo" class="logo-img" />
+      <h1>Mike Arbrouet</h1>
+      <p>Speaker. Mentor. Consultant. Helping individuals and organizations thrive with clarity, confidence, and strategy.</p>
+      <a href="#contact" class="cta">Book Me</a>
+    </header>
 
-  <section id="credentials">
-    <h2>Certifications & Experience</h2>
-    <ul>
-      <li><strong>Certifications:</strong> CISSP, CISM</li>
-      <li><strong>Years of Experience:</strong> Over 10 years in cybersecurity, leadership, and consulting</li>
-      <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mikearbrouet" target="_blank">linkedin.com/in/mikearbrouet</a></li>
-      <li><strong>Key Accomplishment:</strong> Led a cross-functional team of 15 experts to deliver AI-driven solutions in Fortune 100 enterprises</li>
-    </ul>
-  </section>
+    <section id="credentials">
+      <h2>Certifications & Experience</h2>
+      <ul>
+        <li><strong>Certifications:</strong> CISSP, CISM</li>
+        <li><strong>Years of Experience:</strong> Over 10 years in cybersecurity, leadership, and consulting</li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mikearbrouet" target="_blank">linkedin.com/in/mikearbrouet</a></li>
+        <li><strong>Key Accomplishment:</strong> Led a cross-functional team of 15 experts to deliver AI-driven solutions in Fortune 100 enterprises</li>
+      </ul>
+    </section>
 
-  <section id="speaking">
-    <h2>Speaking Engagements</h2>
-    <p>Mike delivers engaging and impactful talks designed to empower audiences across industries.</p>
-    <ul>
-      <li>Leadership in the Digital Age</li>
-      <li>Resilience Through Adversity</li>
-      <li>Building Future-Ready Teams</li>
-      <li>AI Security and Governance</li>
-      <li>Risk Management for Modern Enterprises</li>
-      <li>Threat Modeling: From Framework to Practice</li>
-      <li>Cybersecurity for Executive Leaders</li>
-      <li>Trustworthy AI and Responsible Innovation</li>
-    </ul>
-  </section>
+    <section id="speaking">
+      <h2>Speaking Engagements</h2>
+      <p>Mike delivers engaging and impactful talks designed to empower audiences across industries.</p>
+      <ul>
+        <li>Leadership in the Digital Age</li>
+        <li>Resilience Through Adversity</li>
+        <li>Building Future-Ready Teams</li>
+        <li>AI Security and Governance</li>
+        <li>Risk Management for Modern Enterprises</li>
+        <li>Threat Modeling: From Framework to Practice</li>
+        <li>Cybersecurity for Executive Leaders</li>
+        <li>Trustworthy AI and Responsible Innovation</li>
+      </ul>
+    </section>
 
-  <section id="mentoring">
-    <h2>Mentoring & Consulting</h2>
-    <p>Tailored guidance and strategic support for leaders and teams ready to evolve and scale.</p>
-    <ul>
-      <li>1:1 Mentorship</li>
-      <li>Leadership & Career Coaching</li>
-      <li>Strategic Consulting for Teams</li>
-    </ul>
-  </section>
+    <section id="mentoring">
+      <h2>Mentoring & Consulting</h2>
+      <p>Tailored guidance and strategic support for leaders and teams ready to evolve and scale.</p>
+      <ul>
+        <li>1:1 Mentorship</li>
+        <li>Leadership & Career Coaching</li>
+        <li>Strategic Consulting for Teams</li>
+      </ul>
+    </section>
 
-  <section id="contact">
-    <h2>Book Mike</h2>
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message or Event Details" rows="6" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </section>
+    <section id="contact">
+      <h2>Book Mike</h2>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message or Event Details" rows="6" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
 
-  <footer>
-    <div class="social">
-      <a href="https://www.linkedin.com/in/mikearbrouet" target="_blank">LinkedIn</a>
-    </div>
-    <p>&copy; 2025 Mike Arbrouet. All rights reserved.</p>
-  </footer>
+    <footer>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/mikearbrouet" target="_blank">LinkedIn</a>
+      </div>
+      <p>&copy; 2025 Mike Arbrouet. All rights reserved.</p>
+    </footer>
+  </div>
 </body>
 </html>
