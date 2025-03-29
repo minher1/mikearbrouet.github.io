@@ -26,16 +26,16 @@
       color: #fff;
       padding: 0 20px;
     }
-    .logo {
-      font-size: 3rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-      color: #D4AF37;
+    .logo-img {
+      width: 120px;
+      height: auto;
       margin-bottom: 20px;
+      animation: fadeIn 1.5s ease-in;
     }
     h1 {
       font-size: 2.8rem;
       margin: 0;
+      animation: slideDown 1s ease-out;
     }
     p {
       font-size: 1.2rem;
@@ -104,11 +104,19 @@
       text-decoration: none;
       font-weight: bold;
     }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes slideDown {
+      0% { transform: translateY(-50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">MA</div>
+    <img src="logo.png" alt="Mike Arbrouet Logo" class="logo-img" />
     <h1>Mike Arbrouet</h1>
     <p>Speaker. Mentor. Consultant. Helping individuals and organizations thrive with clarity, confidence, and strategy.</p>
     <a href="#contact" class="cta">Book Me</a>
