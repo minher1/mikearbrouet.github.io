@@ -4,24 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mike Arbrouet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #16202F;
+      font-family: 'Raleway', sans-serif;
+      background-color: #121212;
       color: #ffffff;
       scroll-behavior: smooth;
     }
     header {
+      background: url('hero-background.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 100px 20px 60px;
+      color: #fff;
+      padding: 0 20px;
     }
     .logo {
-      width: 120px;
-      margin: 0 auto 30px;
+      font-size: 3rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #D4AF37;
+      margin-bottom: 20px;
     }
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin: 0;
     }
     p {
@@ -31,21 +44,29 @@
       line-height: 1.6;
     }
     section {
-      padding: 60px 20px;
-      max-width: 800px;
+      padding: 80px 20px;
+      max-width: 900px;
       margin: 0 auto;
     }
     h2 {
       font-size: 2rem;
       margin-bottom: 20px;
       color: #D4AF37;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
     }
     .cta {
       display: inline-block;
       margin-top: 30px;
       padding: 15px 30px;
       background-color: #D4AF37;
-      color: #16202F;
+      color: #121212;
       text-decoration: none;
       font-weight: bold;
       border-radius: 6px;
@@ -63,7 +84,7 @@
     }
     button {
       background-color: #D4AF37;
-      color: #16202F;
+      color: #121212;
       padding: 12px;
       font-weight: bold;
       border: none;
@@ -72,9 +93,10 @@
     }
     footer {
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
       font-size: 0.9rem;
-      color: #ccc;
+      color: #aaa;
+      background-color: #1a1a1a;
     }
     .social a {
       color: #D4AF37;
@@ -86,10 +108,10 @@
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Mike Arbrouet Logo" class="logo" />
-    <h1>Inspiring Growth Through Speaking, Mentorship & Strategy</h1>
-    <p>Mike Arbrouet empowers individuals and organizations to unlock their potential through powerful keynotes, hands-on mentoring, and actionable consulting insights.</p>
-    <a href="#contact" class="cta">Book Mike</a>
+    <div class="logo">MA</div>
+    <h1>Mike Arbrouet</h1>
+    <p>Speaker. Mentor. Consultant. Helping individuals and organizations thrive with clarity, confidence, and strategy.</p>
+    <a href="#contact" class="cta">Book Me</a>
   </header>
 
   <section id="credentials">
@@ -104,7 +126,7 @@
 
   <section id="speaking">
     <h2>Speaking Engagements</h2>
-    <p>Engage your audience with thought-provoking talks on leadership, resilience, and the future of work. Mike delivers compelling, energizing keynotes customized for your team or event.</p>
+    <p>Mike delivers engaging and impactful talks designed to empower audiences across industries.</p>
     <ul>
       <li>Leadership in the Digital Age</li>
       <li>Resilience Through Adversity</li>
@@ -119,7 +141,7 @@
 
   <section id="mentoring">
     <h2>Mentoring & Consulting</h2>
-    <p>Mike provides tailored mentorship and consulting services for leaders, teams, and organizations looking to thrive in change. From career coaching to strategic planning, every session is built around transformation.</p>
+    <p>Tailored guidance and strategic support for leaders and teams ready to evolve and scale.</p>
     <ul>
       <li>1:1 Mentorship</li>
       <li>Leadership & Career Coaching</li>
