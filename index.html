@@ -4,157 +4,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mike Arbrouet</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Raleway', sans-serif;
-      background: url('hero-background.jpg') center/cover no-repeat;
-      background-attachment: fixed;
-      color: #ffffff;
-      scroll-behavior: smooth;
-    }
-    .container {
-      width: 100%;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    header {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 20px;
-    }
-    .logo-img {
-      width: 120px;
-      height: auto;
-      margin-bottom: 20px;
-      animation: fadeIn 1.5s ease-in;
-    }
-    h1 {
-      font-size: 2.8rem;
-      margin: 0;
-      animation: slideDown 1s ease-out;
-    }
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 20px auto;
-      line-height: 1.6;
-    }
-    section {
-      padding: 60px 20px;
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0.6);
-      margin: 20px auto;
-      border-radius: 12px;
-      max-width: 900px;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #D4AF37;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    ul {
-      list-style-position: inside;
-      text-align: left;
-      display: inline-block;
-      margin: 0 auto;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    .cta {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 30px;
-      background-color: #D4AF37;
-      color: #121212;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      align-items: center;
-    }
-    input, textarea {
-      padding: 12px;
-      border-radius: 4px;
-      border: none;
-      font-size: 1rem;
-      width: 100%;
-      max-width: 500px;
-    }
-    button {
-      background-color: #D4AF37;
-      color: #121212;
-      padding: 12px;
-      font-weight: bold;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    footer {
-      text-align: center;
-      padding: 60px 20px;
-      font-size: 0.9rem;
-      color: #aaa;
-      background-color: rgba(0, 0, 0, 0.7);
-    }
-    .social a {
-      color: #D4AF37;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-    @keyframes slideDown {
-      0% { transform: translateY(-50px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-  </style>
 </head>
 <body>
+  <div class="nav-toggle" onclick="document.querySelector('.nav').classList.toggle('active')">
+    ☰ Menu
+  </div>
+  <nav class="nav">
+    <a href="#hero-intro">Home</a>
+    <a href="#about">About</a>
+    <a href="#credentials">Experience</a>
+    <a href="#speaking">Speaking</a>
+    <a href="#mentoring">Mentoring</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <div class="container">
     <section id="hero-intro">
-      <img src="logo.png" alt="Mike Arbrouet Logo" class="logo-img" />
+      <img src="logo.png" alt="Mike Arbrouet Logo" class="logo-img" style="width: 240px;" />
       <h1>Mike Arbrouet</h1>
       <p>Speaker. Mentor. Consultant. Helping individuals and organizations thrive with clarity, confidence, and strategy.</p>
       <a href="#contact" class="cta">Book Me</a>
     </section>
-    
 
-    
+    <section id="about">
+      <h2>About Me</h2>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 20px;">
+        <img src="linkedin-profile.jpg" alt="Mike Arbrouet" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" />
+        <p style="flex: 1; max-width: 500px; text-align: left;">V-CISO | CTO | Information Security Strategist | Cybersecurity, Risk & Technology Management Expert | Security Strategy Leader | Cloud Native Security Advocate | ICANN & ARIN Fellow | International Speaker | Mentor</p>
+      </div>
+    </section>
 
-<section id="about">
-  <h2>About Me</h2>
-  <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 20px;">
-    <img src="linkedin-profile.jpg" alt="Mike Arbrouet" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" />
-    <p style="flex: 1; max-width: 500px; text-align: left;">V-CISO | CTO | Information Security Strategist | Cybersecurity, Risk & Technology Management Expert | Security Strategy Leader | Cloud Native Security Advocate | ICANN & ARIN Fellow | International Speaker | Mentor</p>
-  </div>
-</section>
-
-<section id="credentials">
+    <section id="credentials">
       <h2>Certifications & Experience</h2>
-  <ul>
+      <ul>
         <li><strong>Founder:</strong> Tainos CyberCon, a platform dedicated to empowering underrepresented voices in cybersecurity</li>
         <li><strong>Languages:</strong> Fluent in French and English; able to deliver keynotes and workshops in both</li>
         <li><strong>Speaking Highlights:</strong> Invited speaker at ItenWired, NolaCon, and BSides conferences</li>
-  </ul>
-
+      </ul>
     </section>
 
     <section id="speaking">
