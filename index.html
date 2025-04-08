@@ -1,17 +1,278 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mike Arbrouet</title>
-  <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/3e559df140.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+
+    .nav-wrapper {
+      position: sticky;
+      top: 0;
+      background-color: #2c3e50;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-wrapper img {
+      height: 40px;
+    }
+
+    .nav-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      transition: background-color 0.3s;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      background-color: #3498db;
+      border-radius: 5px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 0;
+      background-color: #ecf0f1;
+      border-radius: 10px;
+    }
+
+    .hero .logo-img {
+      max-width: 150px;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #7f8c8d;
+    }
+
+    .cta {
+      display: inline-block;
+      background-color: #3498db;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 700;
+      transition: background-color 0.3s;
+    }
+
+    .cta:hover {
+      background-color: #2980b9;
+    }
+
+    section {
+      padding: 3rem 0;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    section p,
+    section ul {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    section ul li {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    section ul li::before {
+      content: '•';
+      color: #3498db;
+      position: absolute;
+      left: 0;
+      font-size: 1.5rem;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    form input,
+    form textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    form textarea {
+      resize: vertical;
+    }
+
+    form button {
+      background-color: #3498db;
+      color: #fff;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    form button:hover {
+      background-color: #2980b9;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background-color: #2c3e50;
+      color: #fff;
+    }
+
+    footer .social a {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: 700;
+      margin: 0 0.5rem;
+    }
+
+    footer p {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    #scrollToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: none;
+      transition: background-color 0.3s;
+    }
+
+    #scrollToTop:hover {
+      background-color: #2980b9;
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #2c3e50;
+        padding: 1rem;
+      }
+
+      .nav.active {
+        display: flex;
+      }
+
+      .nav a {
+        padding: 0.75rem;
+      }
+
+      .hero {
+        padding: 2rem 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+
+      section {
+        padding: 2rem 0;
+      }
+
+      section h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="nav-wrapper">
-    <img src="logo.png" alt="Logo" />
+    <img src="logo.png" alt="Mike Arbrouet Logo" />
     <div class="nav-toggle" onclick="document.querySelector('.nav').classList.toggle('active')">☰ Menu</div>
     <nav class="nav">
       <a href="#hero-intro"><i class="fas fa-home"></i> Home</a>
@@ -30,6 +291,7 @@
       <p>Speaker. Mentor. Consultant. Helping individuals and organizations thrive with clarity, confidence, and strategy.</p>
       <a href="#contact" class="cta">Book Me</a>
     </section>
-  </div>
-</body>
-</html>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>V-CISO | CTO | Information Security
