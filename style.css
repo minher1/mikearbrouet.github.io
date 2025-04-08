@@ -21,13 +21,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem; /* Reduced gap to bring logo closer to nav */
+  gap: 1rem;
   z-index: 1000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nav-wrapper img {
-  height: 50px; /* Increased size from 40px to 50px */
+  height: 50px;
 }
 
 .nav-toggle {
@@ -70,7 +70,7 @@ body {
 .hero {
   text-align: center;
   padding: 4rem 0;
-  background-color: #ecf0f1;
+  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); /* Added gradient background */
   border-radius: 10px;
 }
 
@@ -82,13 +82,15 @@ body {
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #2c3e50;
+  color: #fff; /* Changed to white for contrast */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Added subtle shadow for readability */
 }
 
 .hero p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
-  color: #7f8c8d;
+  color: #fff; /* Changed to white for contrast */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Added subtle shadow for readability */
 }
 
 .cta {
@@ -100,17 +102,19 @@ body {
   border-radius: 5px;
   font-weight: 700;
   transition: background-color 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Added shadow to make button stand out */
 }
 
 .cta:hover {
   background-color: #2980b9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
 }
 
 /* About Section with Image */
 #about .about-content {
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the content horizontally */
+  justify-content: center;
   gap: 2rem;
   max-width: 800px;
   margin: 0 auto;
@@ -122,8 +126,8 @@ body {
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: block; /* Ensure the image is a block element for centering */
-  margin: 0 auto; /* Center the image within its flex item */
+  display: block;
+  margin: 0 auto;
 }
 
 #about p {
