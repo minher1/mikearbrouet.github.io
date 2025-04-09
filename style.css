@@ -82,7 +82,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.1); /* Subtle overlay */
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
 
@@ -97,14 +97,14 @@ body {
 }
 
 .hero h1 {
-  font-size: 2.8rem; /* Increased font size */
+  font-size: 2.8rem;
   margin-bottom: 1rem;
   color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero p {
-  font-size: 1.3rem; /* Increased font size */
+  font-size: 1.3rem;
   margin-bottom: 2rem;
   color: #fff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
@@ -124,7 +124,7 @@ body {
 
 .cta:hover {
   background-color: #2980b9;
-  transform: scale(1.05); /* Slight scale on hover */
+  transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -158,16 +158,16 @@ section {
 }
 
 .section-divider {
-  background: linear-gradient(180deg, #ffffff 0%, #f5f7fa 100%); /* Subtle gradient background */
+  background: linear-gradient(180deg, #ffffff 0%, #f5f7fa 100%);
   border-radius: 10px;
 }
 
 section h2 {
-  font-size: 2.2rem; /* Increased font size */
+  font-size: 2.2rem;
   margin-bottom: 2rem;
   text-align: center;
   color: #2c3e50;
-  letter-spacing: 1px; /* Added letter spacing */
+  letter-spacing: 1px;
 }
 
 section h2 i {
@@ -185,10 +185,10 @@ section ul {
 .card {
   background-color: #ecf0f1;
   padding: 1.5rem;
-  border-radius: 10px; /* Increased border radius */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increased shadow */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #e0e0e0; /* Added border */
+  border: 1px solid #e0e0e0;
 }
 
 .card:hover {
@@ -215,7 +215,7 @@ section ul {
 }
 
 .experience-list strong {
-  font-size: 1.3rem; /* Increased font size */
+  font-size: 1.3rem;
   font-weight: 700;
   color: #2c3e50;
   display: block;
@@ -224,8 +224,8 @@ section ul {
 
 /* Certifications List */
 .cert-list {
-  list-style: none;
-  padding-left: 0;
+  list-style: disc; /* Match screenshot bullet style */
+  padding-left: 1.5rem;
   margin-top: 0.5rem;
 }
 
@@ -233,11 +233,15 @@ section ul {
   font-size: 1rem;
   color: #7f8c8d;
   margin-bottom: 0.3rem;
+  position: relative;
 }
 
 .cert-list i {
   color: #3498db;
   margin-right: 0.5rem;
+  font-size: 1rem;
+  display: inline-block; /* Ensure icon displays */
+  vertical-align: middle;
 }
 
 /* Card Background Colors */
