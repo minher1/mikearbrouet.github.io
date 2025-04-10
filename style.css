@@ -659,3 +659,57 @@ section:nth-of-type(4) { animation-delay: 0.6s; }
   margin-right: 0.5rem;
   display: inline-block;
 }
+.experience-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.cert-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.cert-list li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card {
+  background-color: #ecf0f1;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card[data-color="blue"] {
+  background-color: #e8f4f8;
+}
+
+.card[data-color="green"] {
+  background-color: #e9f7ef;
+}
+
+.card[data-color="purple"] {
+  background-color: #f3e8ff;
+}
+
+.card[data-color="teal"] {
+  background-color: #e6f0fa;
+}
