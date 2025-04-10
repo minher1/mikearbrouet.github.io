@@ -638,3 +638,24 @@ section:nth-of-type(4) { animation-delay: 0.6s; }
     transform: translateY(0);
   }
 }
+
+/* Experience Cards Animation */
+.card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Font Awesome icon styling for cert list */
+.cert-list li::before {
+  content: "\f058";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: #3498db;
+  margin-right: 0.5rem;
+  display: inline-block;
+}
