@@ -182,7 +182,27 @@
   });
 </script>
 
+
+<script>
+  const animatedSections = document.querySelectorAll("section");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  animatedSections.forEach(section => {
+    section.style.animationPlayState = 'paused';
+    observer.observe(section);
+  });
+</script>
 </body>
+
   <script>
   document.addEventListener("DOMContentLoaded", () => {
     const toggle = document.querySelector('.nav-toggle');
