@@ -1,144 +1,189 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="default-src 'self'; script-src 'self' https://kit.fontawesome.com; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com; form-action 'self' https://formspree.io;" http-equiv="Content-Security-Policy"/>
-<title>Mike Arbrouet | Cybersecurity Strategist &amp; Speaker</title>
-<link href="style.css" rel="stylesheet"/>
-<link href="favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." referrerpolicy="no-referrer" rel="stylesheet"/>
-<!-- Font Awesome 6 CDN -->
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-bxU0yq0wYlDsAl/kaP5Xk2N+3zA4rOwrQzrOEI6smRv1qzW8BdOrjZdljJD2r4QyS1xrYlUpl7fJ7bn+HEUk1w==" referrerpolicy="no-referrer" rel="stylesheet"/>
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2Lw==" referrerpolicy="no-referrer" rel="stylesheet"/>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="default-src 'self'; script-src 'self' https://kit.fontawesome.com; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com; form-action 'self' https://formspree.io;" http-equiv="Content-Security-Policy"/>
+  <title>Mike Arbrouet | Cybersecurity Strategist & Speaker</title>
+  <link href="style.css" rel="stylesheet"/>
+  <link href="favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2Lw==" referrerpolicy="no-referrer" rel="stylesheet"/>
 </head>
 <body>
-<div class="nav-wrapper">
-<img alt="Mike Arbrouet Logo" src="logo.png"/>
-<div class="nav-toggle" onclick="document.querySelector('.nav').classList.toggle('active')">☰ Menu</div>
-<nav class="nav">
-<a href="#hero-intro"> Home</a>
-<a href="#about"> About</a>
-<a href="#credentials"> Experience</a>
-<a href="#speaking"> Speaking</a>
-<a href="#mentoring"> Mentoring</a>
-<a href="#contact"> Contact</a>
-</nav>
-</div>
-<div class="container">
-<section class="hero" id="hero-intro">
-<div class="hero-content">
-<img alt="Mike Arbrouet Logo" class="logo-img fade-in" src="logo.png"/>
-<h1 class="fade-up">Mike Arbrouet</h1>
-<p class="fade-up delay-1">
-      Trusted cybersecurity strategist, speaker, and founder helping organizations lead securely in the age of AI, cloud, and constant change.
-    </p>
-<a class="cta fade-up delay-2" href="#contact">Let's Collaborate</a>
-</div>
-</section>
-<section class="section-divider" id="about">
-<h2>About Me</h2>
-<div class="about-content">
-<picture>
-<source srcset="mike-portrait.webp" type="image/webp"/>
-<img alt="Portrait of Mike Arbrouet" class="about-img" loading="lazy" src="mike-portrait.jpg"/>
-</picture>
-<p>Results-oriented cybersecurity executive with over 15 years of experience safeguarding organizations from both external threats and internal vulnerabilities. Skilled in identifying unknown threat vectors and implementing proactive defenses before they can be exploited. Combines strategic use of technology with targeted personnel training to strengthen both human and digital security layers. Proven ability to assess business risk, navigate compliance landscapes, and lead the development of secure, scalable solutions. Extensive background in building layered security architectures and driving enterprise-wide risk management initiatives.</p>
-</div>
-</section>
-<section id="credentials">
-<h2> Certifications &amp; Experience</h2>
-<div class="experience-list">
-<div class="card" data-color="blue">
-<strong> Certifications</strong>
-<ul class="cert-list">
-<li>✅  CISSP</li>
-<li>✅  CISM</li>
-<li>✅  IBM Certified Cloud Advocate</li>
-<li>✅  CCNA</li>
-<li>✅  IBM Technology Excellence</li>
-<li>✅  IBM Mentor</li>
-<li>✅  Security and Risk Management Expert</li>
-</ul>
-</div>
-<div class="card" data-color="green">
-<strong> Founder</strong>
-<p>Tainos CyberCon – Empowering underrepresented voices in cybersecurity through events, mentorship, and inclusive storytelling.</p>
-</div>
-<div class="card" data-color="purple">
-<strong> Languages</strong>
-<p>Bilingual: Fluent in French &amp; English – delivering keynotes, panels, and workshops across international audiences.</p>
-</div>
-<div class="card" data-color="teal">
-<strong> Speaking Highlights</strong>
-<p>Featured speaker at ItenWired, NolaCon, BSides — recognized for impactful storytelling and actionable security strategies.</p>
-</div>
-</div>
-</section>
-<section id="speaking">
-<h2> Impactful Talks by Mike Arbrouet</h2>
-<div class="speaking-grid">
-<div class="speaking-card">Leadership in the Digital Age</div>
-<div class="speaking-card">Resilience Through Adversity</div>
-<div class="speaking-card">Building Future-Ready Teams</div>
-<div class="speaking-card">AI Security and Governance</div>
-<div class="speaking-card">The Human Element in Cybersecurity</div>
-<div class="speaking-card">Threat Modeling: Framework to Practice</div>
-<div class="speaking-card">Cybersecurity for Executive Leaders</div>
-<div class="speaking-card">Trustworthy AI &amp; Responsible Innovation</div>
-<div class="speaking-card">Zero Trust &amp; Perimeterless Systems</div>
-<div class="speaking-card">Quantum Security: Preparing for What’s Next</div>
-</div>
-</section>
-<section class="section-divider" id="mentoring">
-<h2>🤝 Mentoring &amp; Consulting</h2>
-<ul class="mentoring-list">
-<li class="card"> 1:1 Mentorship</li>
-<li class="card"> Leadership &amp; Career Coaching</li>
-<li class="card"> Strategic Consulting for Teams</li>
-</ul>
-</section>
-<section class="section-divider" id="contact">
-<h2> Request Mike for a Speaking Engagement</h2>
-<form action="https://formspree.io/f/mjkyeeye" method="POST">
-<input name="name" placeholder="Your Name" required="" type="text"/>
-<input name="email" placeholder="Your Email" required="" type="email"/>
-<textarea name="message" placeholder="How can Mike contribute to your event?" required="" rows="6"></textarea>
-<button type="submit">Send Request</button>
-</form>
-</section>
-<footer>
-<div class="social">
-<a href="https://www.linkedin.com/in/mikearbrouet" rel="noopener noreferrer" target="_blank">LinkedIn</a>
-<a href="https://github.com/minher1" rel="noopener noreferrer" target="_blank">GitHub</a>
-</div>
-<p>© 2025 Mike Arbrouet. All rights reserved.</p>
-</footer>
-</div>
-<button aria-label="Scroll to top" id="scrollToTop">↑</button>
+  <div class="nav-wrapper">
+    <img alt="Mike Arbrouet Logo" src="logo.png"/>
+    <div class="nav-toggle">☰ Menu</div>
+    <nav class="nav">
+      <a href="#hero-intro"> Home</a>
+      <a href="#about"> About</a>
+      <a href="#credentials"> Experience</a>
+      <a href="#speaking"> Speaking</a>
+      <a href="#mentoring"> Mentoring</a>
+      <a href="#contact"> Contact</a>
+    </nav>
+  </div>
+  <div class="container">
+    <section class="hero" id="hero-intro">
+      <div class="hero-content">
+        <div class="hero-text">
+          <img alt="Mike Arbrouet Logo" class="logo-img fade-in" src="logo.png"/>
+          <h1 class="fade-up">Mike Arbrouet</h1>
+          <p class="fade-up delay-1">
+            Trusted cybersecurity strategist, speaker, and founder helping organizations lead securely in the age of AI, cloud, and constant change.
+          </p>
+          <a class="cta fade-up delay-2" href="#contact">Let's Collaborate</a>
+        </div>
+        <div class="hero-images">
+          <div class="image-wrapper">
+            <img src="speaking-1.jpg" alt="Mike Arbrouet speaking at an event" class="hero-img fade-in delay-1" loading="lazy" />
+            <p class="image-caption">Speaking at CyberCon 2024</p>
+          </div>
+          <div class="image-wrapper">
+            <img src="speaking-2.jpg" alt="Mike Arbrouet presenting to an audience" class="hero-img fade-in delay-2" loading="lazy" />
+            <p class="image-caption">Presenting at Gilmore Security Summit</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-divider" id="about">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <picture>
+          <source srcset="mike-portrait.webp" type="image/webp"/>
+          <img alt="Portrait of Mike Arbrouet" class="about-img" loading="lazy" src="mike-portrait.jpg"/>
+        </picture>
+        <p>Results-oriented cybersecurity executive with over 15 years of experience safeguarding organizations from both external threats and internal vulnerabilities. Skilled in identifying unknown threat vectors and implementing proactive defenses before they can be exploited. Combines strategic use of technology with targeted personnel training to strengthen both human and digital security layers. Proven ability to assess business risk, navigate compliance landscapes, and lead the development of secure, scalable solutions. Extensive background in building layered security architectures and driving enterprise-wide risk management initiatives.</p>
+      </div>
+    </section>
+    <section id="credentials">
+      <h2> Certifications & Experience</h2>
+      <div class="experience-list">
+        <div class="card" data-color="blue">
+          <strong> Certifications</strong>
+          <ul class="cert-list">
+            <li>✅  CISSP</li>
+            <li>✅  CISM</li>
+            <li>✅  IBM Certified Cloud Advocate</li>
+            <li>✅  CCNA</li>
+            <li>✅  IBM Technology Excellence</li>
+            <li>✅  IBM Mentor</li>
+            <li>✅  Security and Risk Management Expert</li>
+          </ul>
+        </div>
+        <div class="card" data-color="green">
+          <strong> Founder</strong>
+          <p>Tainos CyberCon – Empowering underrepresented voices in cybersecurity through events, mentorship, and inclusive storytelling.</p>
+        </div>
+        <div class="card" data-color="purple">
+          <strong> Languages</strong>
+          <p>Bilingual: Fluent in French & English – delivering keynotes, panels, and workshops across international audiences.</p>
+        </div>
+        <div class="card" data-color="teal">
+          <strong> Speaking Highlights</strong>
+          <p>Featured speaker at ItenWired, NolaCon, BSides — recognized for impactful storytelling and actionable security strategies.</p>
+        </div>
+      </div>
+    </section>
+    <section id="speaking">
+      <h2> Impactful Talks by Mike Arbrouet</h2>
+      <div class="speaking-grid">
+        <div class="speaking-card">Leadership in the Digital Age</div>
+        <div class="speaking-card">Resilience Through Adversity</div>
+        <div class="speaking-card">Building Future-Ready Teams</div>
+        <div class="speaking-card">AI Security and Governance</div>
+        <div class="speaking-card">The Human Element in Cybersecurity</div>
+        <div class="speaking-card">Threat Modeling: Framework to Practice</div>
+        <div class="speaking-card">Cybersecurity for Executive Leaders</div>
+        <div class="speaking-card">Trustworthy AI & Responsible Innovation</div>
+        <div class="speaking-card">Zero Trust & Perimeterless Systems</div>
+        <div class="speaking-card">Quantum Security: Preparing for What’s Next</div>
+      </div>
+    </section>
+    <section class="section-divider" id="mentoring">
+      <h2>🤝 Mentoring & Consulting</h2>
+      <ul class="mentoring-list">
+        <li class="card"> 1:1 Mentorship</li>
+        <li class="card"> Leadership & Career Coaching</li>
+        <li class="card"> Strategic Consulting for Teams</li>
+      </ul>
+    </section>
+    <section class="section-divider" id="contact">
+      <h2> Request Mike for a Speaking Engagement</h2>
+      <form action="https://formspree.io/f/mjkyeeye" method="POST">
+        <input name="name" placeholder="Your Name" required="" type="text"/>
+        <input name="email" placeholder="Your Email" required="" type="email"/>
+        <textarea name="message" placeholder="How can Mike contribute to your event?" required="" rows="6"></textarea>
+        <button type="submit">Send Request</button>
+      </form>
+    </section>
+    <footer>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/mikearbrouet" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+        <a href="https://github.com/minher1" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </div>
+      <p>© 2025 Mike Arbrouet. All rights reserved.</p>
+    </footer>
+  </div>
+  <button aria-label="Scroll to top" id="scrollToTop">↑</button>
 
-<script>
-  const toggleBtn = document.createElement('button');
-  toggleBtn.id = 'themeToggle';
-  toggleBtn.innerText = '🌙';
-  document.body.appendChild(toggleBtn);
+  <script>
+    // Theme toggle
+    const toggleBtn = document.createElement('button');
+    toggleBtn.id = 'themeToggle';
+    toggleBtn.innerText = '🌙';
+    document.body.appendChild(toggleBtn);
 
-  toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    toggleBtn.innerText = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-  });
-</script>
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggleBtn.innerText = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.nav');
-  toggle.addEventListener('click', function () {
-    nav.classList.toggle('active');
-  });
-});
-</script></body>
+    // Hamburger menu toggle for mobile
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('.nav');
 
+      toggle.addEventListener('click', function () {
+        nav.classList.toggle('active');
+      });
+
+      toggle.addEventListener('touchstart', function (e) {
+        e.preventDefault();
+        nav.classList.toggle('active');
+      });
+
+      // Close menu when a link is clicked on mobile
+      document.querySelectorAll('.nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            nav.classList.remove('active');
+          }
+        });
+      });
+    });
+
+    // Parallax effect for hero images
+    window.addEventListener('scroll', () => {
+      const heroImages = document.querySelectorAll('.hero-img');
+      const scrollPosition = window.scrollY;
+
+      heroImages.forEach((img, index) => {
+        const speed = index === 0 ? 0.2 : -0.2; // Different speeds for each image
+        const offset = scrollPosition * speed;
+        img.style.transform = `translateY(${offset}px)`;
+      });
+    });
+
+    // Scroll-to-top button
+    window.addEventListener('scroll', () => {
+      const scrollBtn = document.getElementById("scrollToTop");
+      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+
+    document.getElementById("scrollToTop").addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
 </html>
