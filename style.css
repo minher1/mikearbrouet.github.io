@@ -131,6 +131,11 @@ body {
   transition: transform 0.3s ease;
 }
 
+/* Fix for speaking-1.jpg to show the top of the image */
+.hero-images .image-wrapper:first-child .hero-img {
+  object-position: top;
+}
+
 .image-caption {
   color: #fff;
   font-size: 0.9rem;
