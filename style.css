@@ -325,6 +325,9 @@ section ul {
   margin-right: 0.5rem;
   display: inline-block;
 }
+.cert-list li.no-icon::before {
+  content: none;
+}
 
 /* Card Background Colors */
 .card[data-color="blue"] {
