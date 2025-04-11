@@ -680,3 +680,26 @@ section:nth-of-type(4) { animation-delay: 0.6s; }
 .card:nth-child(2) { animation-delay: 0.2s; }
 .card:nth-child(3) { animation-delay: 0.3s; }
 .card:nth-child(4) { animation-delay: 0.4s; }
+
+
+
+/* Section Heading Bar */
+.section-heading {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 2.2rem;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.section-heading::after {
+  content: "";
+  display: block;
+  height: 4px;
+  width: 100px;
+  margin: 10px auto 0;
+  background: linear-gradient(to right, #3498db, #2980b9);
+  border-radius: 2px;
+}
