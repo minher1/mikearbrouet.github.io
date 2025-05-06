@@ -219,6 +219,17 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+
+    toggle.addEventListener('click', function () {
+      nav.classList.toggle('active');
+    });
+  });
+</script>
+
 </body>
 
 </html>
