@@ -1044,6 +1044,263 @@
                 font-size: 44px;
             }
         }
+
+        /* ═══════════════════════════════════════════════════════
+           MOBILE OVERRIDES  (max-width: 767px)
+           ═══════════════════════════════════════════════════════ */
+        @media (max-width: 767px) {
+
+            /* ── Nav ── */
+            .nav-container {
+                padding: 12px 16px;
+            }
+
+            .logo-initials {
+                width: 44px;
+                height: 44px;
+            }
+
+            /* Mobile menu overlay */
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(3,7,18,0.97);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 36px;
+                z-index: 2000;
+                list-style: none;
+            }
+
+            .nav-menu.open {
+                display: flex;
+            }
+
+            .nav-menu a {
+                font-size: 22px;
+                font-weight: 600;
+                color: rgba(240,244,255,0.85);
+            }
+
+            .nav-menu a:hover {
+                color: #74b3ff;
+            }
+
+            /* Close button shown in open mobile menu */
+            .mobile-close {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background: none;
+                border: none;
+                color: rgba(240,244,255,0.7);
+                font-size: 28px;
+                cursor: pointer;
+                line-height: 1;
+                padding: 8px;
+            }
+
+            /* ── Hero ── */
+            .hero {
+                padding: 40px 16px 48px;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+                line-height: 1.25;
+                margin-bottom: 14px;
+            }
+
+            .hero-tagline {
+                font-size: 15px;
+                margin-bottom: 24px;
+            }
+
+            .hero-badge {
+                font-size: 11px;
+                padding: 5px 12px;
+                margin-bottom: 18px;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+                margin: 20px 0;
+            }
+
+            .stat-number {
+                font-size: 24px;
+            }
+
+            .stat-label {
+                font-size: 10px;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+                padding: 13px 20px;
+            }
+
+            /* Portrait: smaller on mobile, shown below text */
+            .hero-image {
+                max-width: 260px;
+                margin: 0 auto;
+            }
+
+            /* ── Featured Speaking ── */
+            .featured-speaking {
+                padding: 48px 16px;
+            }
+
+            .featured-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .featured-card {
+                grid-template-rows: 180px auto;
+            }
+
+            .featured-card-content {
+                padding: 16px;
+            }
+
+            .featured-card-title {
+                font-size: 16px;
+            }
+
+            /* ── Gallery ── */
+            .gallery {
+                padding: 48px 16px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            /* Show captions always on mobile (no hover) */
+            .gallery-caption {
+                transform: translateY(0);
+                font-size: 11px;
+                padding: 12px 8px 8px;
+            }
+
+            /* ── About ── */
+            .about {
+                padding: 48px 16px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr !important;
+                gap: 28px;
+            }
+
+            .about-portrait {
+                display: none !important;
+            }
+
+            .quote-highlight {
+                font-size: 15px;
+                padding: 16px;
+                margin: 20px 0;
+            }
+
+            /* ── Credentials ── */
+            .credentials {
+                padding: 48px 16px;
+            }
+
+            .credentials-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .credential-card {
+                padding: 18px;
+            }
+
+            /* ── Speaking Topics ── */
+            .speaking {
+                padding: 48px 16px;
+            }
+
+            .topics-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .topic-card {
+                padding: 14px 16px;
+            }
+
+            .topic-title {
+                font-size: 14px;
+            }
+
+            /* ── Contact ── */
+            .contact {
+                padding: 48px 16px;
+            }
+
+            .form-submit {
+                width: 100%;
+            }
+
+            /* ── Footer ── */
+            .footer {
+                padding: 32px 16px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            /* ── Section headers ── */
+            .section-title {
+                font-size: 26px;
+            }
+
+            .section-description {
+                font-size: 14px;
+            }
+
+            .section-header {
+                margin-bottom: 28px;
+            }
+
+            /* ── Section padding global ── */
+            .section-container {
+                padding: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1836,6 +2093,29 @@
 
             draw();
         })();
+
+        // ── Mobile nav toggle ──────────────────────────────────────────
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu   = document.querySelector('.nav-menu');
+
+        // Add close button inside nav menu
+        if (navMenu && !navMenu.querySelector('.mobile-close')) {
+            const closeBtn = document.createElement('button');
+            closeBtn.className = 'mobile-close';
+            closeBtn.innerHTML = '&times;';
+            closeBtn.addEventListener('click', () => navMenu.classList.remove('open'));
+            navMenu.appendChild(closeBtn);
+        }
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('open');
+            });
+            // Close menu on link tap
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => navMenu.classList.remove('open'));
+            });
+        }
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
