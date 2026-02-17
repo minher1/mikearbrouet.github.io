@@ -248,19 +248,24 @@
         .hero h1 {
             font-size: 40px;
             margin-bottom: 20px;
-            color: var(--text);
+            color: #ffffff;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4), 0 4px 24px rgba(15, 98, 254, 0.2);
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .hero-title-highlight {
-            color: var(--primary);
+            color: #74b3ff;
+            text-shadow: 0 0 20px rgba(116, 179, 255, 0.4);
         }
 
         .hero-tagline {
             font-size: 18px;
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.85);
             margin-bottom: 32px;
             line-height: 1.6;
             font-weight: 400;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
         .hero-stats {
@@ -468,7 +473,7 @@
         }
 
         .featured-card-image.tainos {
-            background-image: url('tainos-speaking-closeup.png');
+            background-image: url('tainos-speaking-full.jpg');
         }
 
         .featured-card-image.afrotech {
@@ -608,7 +613,7 @@
         }
 
         .gallery-item.tainos-1 {
-            background-image: url('tainos-speaking-closeup.png');
+            background-image: url('tainos-speaking-full.jpg');
         }
 
         .gallery-item.tainos-panel {
@@ -1792,28 +1797,29 @@
                             </p>
                         </div>
 
-                        <form class="contact-form">
+                        <form class="contact-form" id="contact-form" action="https://formspree.io/f/mjkyeeye" method="POST">
                             <div class="form-group">
                                 <label class="form-label">Name</label>
-                                <input type="text" class="form-input" required>
+                                <input type="text" name="name" class="form-input" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Email</label>
-                                <input type="email" class="form-input" required>
+                                <input type="email" name="email" class="form-input" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Organization</label>
-                                <input type="text" class="form-input">
+                                <input type="text" name="organization" class="form-input">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Event Topic</label>
-                                <input type="text" class="form-input">
+                                <input type="text" name="event_topic" class="form-input">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Message</label>
-                                <textarea class="form-input form-textarea" required></textarea>
+                                <textarea name="message" class="form-input form-textarea" required></textarea>
                             </div>
                             <button type="submit" class="form-submit">Send Request</button>
+                            <div id="form-status" style="display:none; margin-top:16px; padding:12px 16px; border-radius:6px; font-size:14px; font-weight:600;"></div>
                         </form>
                     </div>
                 </div>
@@ -2159,6 +2165,54 @@
 
             draw();
         })();
+
+
+        // ── Contact form handling ──────────────────────────────────────────
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        if (contactForm && formStatus) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const submitBtn = contactForm.querySelector('.form-submit');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+
+                try {
+                    const formData = new FormData(contactForm);
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        formStatus.style.display = 'block';
+                        formStatus.style.background = 'rgba(36,161,72,0.1)';
+                        formStatus.style.color = '#24A148';
+                        formStatus.style.border = '1px solid rgba(36,161,72,0.3)';
+                        formStatus.textContent = '✓ Message sent! I'll get back to you soon.';
+                        contactForm.reset();
+                        setTimeout(() => {
+                            formStatus.style.display = 'none';
+                        }, 5000);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    formStatus.style.display = 'block';
+                    formStatus.style.background = 'rgba(218,30,40,0.1)';
+                    formStatus.style.color = '#DA1E28';
+                    formStatus.style.border = '1px solid rgba(218,30,40,0.3)';
+                    formStatus.textContent = '✗ Something went wrong. Please try again or email directly.';
+                } finally {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
 
         // ── Mobile nav toggle ──────────────────────────────────────────
         const hamburger = document.querySelector('.hamburger');
