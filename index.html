@@ -49,79 +49,17 @@
             line-height: 1.2;
             letter-spacing: -0.02em;
         }
-
-        /* Device Switcher */
-        .mockup-controls {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 10000;
-            display: flex;
-            gap: 8px;
-            background: var(--bg-light);
-            padding: 8px;
-            border-radius: 12px;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border);
-        }
-
-        .device-btn {
-            padding: 10px 18px;
-            border: 2px solid transparent;
-            background: transparent;
-            border-radius: 8px;
-            cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 13px;
-            color: var(--text-secondary);
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .device-btn:hover {
-            background: var(--bg);
-            color: var(--primary);
-        }
-
-        .device-btn.active {
-            background: var(--primary);
-            color: white;
-        }
-
         /* Mockup Container */
-        .mockup-container {
-            max-width: 1920px;
-            margin: 80px auto 0;
-            padding: 40px 20px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .mockup-container.mobile {
-            max-width: 375px;
-        }
-
-        .mockup-container.tablet {
-            max-width: 768px;
-        }
-
-        .mockup-container.desktop {
-            max-width: 1440px;
-        }
-
-        .device-frame {
-            background: var(--bg-light);
-            border-radius: 0;
-            box-shadow: var(--shadow-lg);
-            overflow: hidden;
-        }
 
         /* Navigation */
         .nav {
-            background: var(--bg-light);
-            border-bottom: 1px solid var(--border);
+            background: rgba(3, 7, 18, 0.92);
+            border-bottom: 1px solid rgba(15, 98, 254, 0.2);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
 
         .nav-container {
@@ -135,9 +73,9 @@
 
         .logo {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
-            color: var(--text);
+            color: #f0f4ff;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -148,13 +86,13 @@
         }
 
         .logo-initials {
-            width: 40px;
-            height: 40px;
+            width: 56px;
+            height: 56px;
             background: #000;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 6px;
         }
 
@@ -171,7 +109,7 @@
         }
 
         .nav-menu a {
-            color: var(--text-secondary);
+            color: rgba(240, 244, 255, 0.65);
             text-decoration: none;
             font-weight: 500;
             font-size: 14px;
@@ -179,7 +117,7 @@
         }
 
         .nav-menu a:hover {
-            color: var(--primary);
+            color: #74b3ff;
         }
 
         .hamburger {
@@ -193,35 +131,83 @@
         .hamburger span {
             width: 20px;
             height: 2px;
-            background: var(--text);
+            background: rgba(240, 244, 255, 0.8);
             border-radius: 2px;
         }
 
         /* Hero Section */
         .hero {
             padding: 60px 24px;
-            background: var(--bg-light);
+            background: #030712;
             position: relative;
             overflow: hidden;
+            color: #fff;
+        }
+
+        /* Animated hero canvas background */
+        #hero-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.85;
+        }
+
+        /* Gradient overlay to blend canvas into content */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 65% 50%, rgba(15, 98, 254, 0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 80% at 10% 50%, rgba(8, 189, 186, 0.08) 0%, transparent 65%),
+                linear-gradient(180deg, rgba(3,7,18,0) 60%, rgba(3,7,18,0.95) 100%);
+            z-index: 1;
+            pointer-events: none;
         }
 
         .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle at center, rgba(15, 98, 254, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(100px);
+            display: none;
+        }
+
+        /* Override text colors for dark hero */
+        .hero .hero-badge {
+            background: rgba(15, 98, 254, 0.15);
+            border: 1px solid rgba(15, 98, 254, 0.4);
+            color: #74b3ff;
+        }
+
+        .hero .badge-dot {
+            background: #0F62FE;
+            box-shadow: 0 0 8px rgba(15, 98, 254, 0.8);
+        }
+
+        .hero h1 {
+            color: #f0f4ff;
+        }
+
+        .hero .hero-tagline {
+            color: rgba(240, 244, 255, 0.7);
+        }
+
+        .hero .stat-number {
+            color: #f0f4ff;
+        }
+
+        .hero .stat-label {
+            color: rgba(240, 244, 255, 0.5);
+        }
+
+        .hero .stat-item::after {
+            background: rgba(240, 244, 255, 0.15);
         }
 
         .hero-container {
             max-width: 1280px;
             margin: 0 auto;
             position: relative;
-            z-index: 1;
+            z-index: 2;
             display: grid;
             gap: 48px;
             align-items: center;
@@ -366,16 +352,16 @@
             border-radius: 16px;
             overflow: hidden;
             position: relative;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            padding: 4px;
-            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, rgba(15,98,254,0.6) 0%, rgba(8,189,186,0.6) 100%);
+            padding: 2px;
+            box-shadow: 0 0 40px rgba(15,98,254,0.3), 0 0 80px rgba(8,189,186,0.15), var(--shadow-lg);
         }
 
         .hero-image-inner {
             width: 100%;
             height: 100%;
             border-radius: 12px;
-            background: url('afrotech-speaking.jpg') center/cover no-repeat;
+            background: url('mike-portrait.png') center top/cover no-repeat;
             position: relative;
         }
 
@@ -485,6 +471,23 @@
             color: white;
             font-size: 20px;
             flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .featured-logo img,
+        .featured-logo svg {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .featured-logo.logo-light {
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .featured-logo.logo-dark {
+            background: #111;
         }
 
         .featured-card-meta {
@@ -949,6 +952,10 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
+        .about-portrait {
+            display: none;
+        }
+
         /* Responsive */
         @media (min-width: 768px) {
             .hamburger {
@@ -985,8 +992,12 @@
             }
 
             .about-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 64px;
+                grid-template-columns: 260px 1fr 1fr;
+                gap: 48px;
+            }
+
+            .about-portrait {
+                display: block;
             }
 
             .credentials-grid {
@@ -1036,15 +1047,7 @@
     </style>
 </head>
 <body>
-    <!-- Device Controls -->
-    <div class="mockup-controls">
-        <button class="device-btn active" data-device="desktop">Desktop</button>
-        <button class="device-btn" data-device="tablet">Tablet</button>
-        <button class="device-btn" data-device="mobile">Mobile</button>
-    </div>
 
-    <div class="mockup-container desktop">
-        <div class="device-frame">
             
             <!-- Navigation -->
             <nav class="nav">
@@ -1073,17 +1076,18 @@
 
             <!-- Hero Section -->
             <section class="hero" id="home">
+                <canvas id="hero-canvas"></canvas>
                 <div class="hero-container">
                     <div class="hero-content">
                         <div class="hero-badge">
                             <span class="badge-dot"></span>
-                            Field CTO
+                            IBM Field CTO
                         </div>
                         <h1>
                             Cybersecurity strategist & speaker <span class="hero-title-highlight">shaping the future</span>
                         </h1>
                         <p class="hero-tagline">
-                            Leading organizations through the complexity of AI, Quantum, cloud, and constant change. Building secure, scalable solutions while empowering the next generation of tech leaders.
+                            Leading organizations through the complexity of AI, cloud, and constant change. Building secure, scalable solutions while empowering the next generation of tech leaders.
                         </p>
                         
                         <div class="hero-stats">
@@ -1092,11 +1096,11 @@
                                 <div class="stat-label">Years</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-number">10+</div>
+                                <div class="stat-number">23</div>
                                 <div class="stat-label">Certifications</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-number">3</div>
+                                <div class="stat-number">2</div>
                                 <div class="stat-label">Degrees</div>
                             </div>
                         </div>
@@ -1138,14 +1142,16 @@
                             <div class="featured-card-image afrotech"></div>
                             <div class="featured-card-content">
                                 <div class="featured-card-header">
-                                    <div class="featured-logo">AT</div>
+                                    <div class="featured-logo" style="background:#000; padding:6px; overflow:hidden;">
+                                        <img src="afrotech-logo.png" alt="AFROTECH Logo" style="width:100%;height:100%;object-fit:contain;">
+                                    </div>
                                     <div class="featured-card-meta">
                                         <h3 class="featured-card-title">AFROTECH™ Conference</h3>
                                         <p class="featured-card-date">October 27-31, 2025 • Houston, TX</p>
                                     </div>
                                 </div>
                                 <p class="featured-card-text">
-                                    Featured speaker at one of the largest Black tech conferences, connecting with innovators and discussing the future of technology leadership. Presented alongside leaders from CISA, F5, Pinterest, Disney, Wells Fargo, NVIDIA, LinkedIn, Salesforce, Google, IBM, META.
+                                    Featured speaker at one of the largest Black tech conferences, connecting with innovators and discussing the future of technology leadership.
                                 </p>
                                 <div class="featured-card-tags">
                                     <span class="tag">Leadership</span>
@@ -1159,7 +1165,9 @@
                             <div class="featured-card-image tainos"></div>
                             <div class="featured-card-content">
                                 <div class="featured-card-header">
-                                    <div class="featured-logo">TC</div>
+                                    <div class="featured-logo" style="background:#1a1e5c; padding:5px; overflow:hidden;">
+                                        <img src="tainos-logo.png" alt="Tainos CyberCon Logo" style="width:100%;height:100%;object-fit:contain;">
+                                    </div>
                                     <div class="featured-card-meta">
                                         <h3 class="featured-card-title">Tainos CyberCon</h3>
                                         <p class="featured-card-date">Founder & Keynote Speaker</p>
@@ -1180,14 +1188,16 @@
                             <div class="featured-card-image itenwired"></div>
                             <div class="featured-card-content">
                                 <div class="featured-card-header">
-                                    <div class="featured-logo">IW</div>
+                                    <div class="featured-logo" style="background:#4db3d8; padding:4px; overflow:hidden;">
+                                        <img src="itenwired-logo.png" alt="ITEN WIRED Logo" style="width:100%;height:100%;object-fit:contain;">
+                                    </div>
                                     <div class="featured-card-meta">
                                         <h3 class="featured-card-title">ITEN WIRED | TechNet CyberCoast</h3>
                                         <p class="featured-card-date">2025 • Pensacola Beach, FL</p>
                                     </div>
                                 </div>
                                 <p class="featured-card-text">
-                                    Presented alongside leaders from CISA, F5, Pinterest, Disney, Wells Fargo, NVIDIA, LinkedIn, Salesforce, Google, IBM, META. Explored AI, cloud computing, and cybersecurity innovations.
+                                    Presented alongside leaders from CISA, IBM, META. Explored AI, cloud computing, and cybersecurity innovations.
                                 </p>
                                 <div class="featured-card-tags">
                                     <span class="tag">Cybersecurity</span>
@@ -1272,7 +1282,12 @@
                         <h2 class="section-title">Breaking Traditional Norms</h2>
                     </div>
 
-                    <div class="about-grid">
+                    <div class="about-grid" style="grid-template-columns: 280px 1fr 1fr; align-items: start;">
+                        <div class="about-portrait">
+                            <div style="border-radius:16px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.3); aspect-ratio:1; background:#111;">
+                                <img src="mike-portrait.png" alt="Mike Arbrouet" style="width:100%;height:100%;object-fit:cover;object-position:center top; display:block; filter:grayscale(100%) contrast(1.05);">
+                            </div>
+                        </div>
                         <div class="about-content">
                             <h3>Results-Oriented Cybersecurity Executive</h3>
                             <p class="about-text">
@@ -1533,20 +1548,294 @@
                     </div>
                 </div>
             </footer>
-        </div>
-    </div>
-
     <script>
-        const buttons = document.querySelectorAll('.device-btn');
-        const container = document.querySelector('.mockup-container');
+        // ── Hero Canvas: Quantum / AI / Cyber / Robotic Background ──────────
+        (function() {
+            const canvas = document.getElementById('hero-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
 
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                buttons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                container.className = `mockup-container ${button.dataset.device}`;
-            });
-        });
+            function resize() {
+                canvas.width  = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            const W = () => canvas.width;
+            const H = () => canvas.height;
+
+            // ── Palette ──────────────────────────────────────────────────────
+            const BLUE   = '#0F62FE';
+            const CYAN   = '#08BDBA';
+            const WHITE  = '#f0f4ff';
+            const DIM    = 'rgba(15,98,254,0.18)';
+            const CDIM   = 'rgba(8,189,186,0.15)';
+
+            // ── Neural Network Nodes ─────────────────────────────────────────
+            const nodeCount = 42;
+            const nodes = Array.from({ length: nodeCount }, () => ({
+                x: Math.random(),
+                y: Math.random(),
+                vx: (Math.random() - 0.5) * 0.00025,
+                vy: (Math.random() - 0.5) * 0.00025,
+                r: Math.random() * 2.5 + 1,
+                pulse: Math.random() * Math.PI * 2,
+                pulseSpeed: 0.018 + Math.random() * 0.022,
+                color: Math.random() > 0.6 ? CYAN : BLUE,
+            }));
+
+            // ── Quantum Circuit Grid ──────────────────────────────────────────
+            const gridCols = 14;
+            const gridRows = 8;
+            const gates = [];
+            for (let c = 0; c < gridCols; c++) {
+                for (let r = 0; r < gridRows; r++) {
+                    if (Math.random() < 0.22) {
+                        gates.push({
+                            cx: (c + 0.5) / gridCols,
+                            cy: (r + 0.5) / gridRows,
+                            type: ['H','X','Z','●','⊕'][Math.floor(Math.random()*5)],
+                            active: false,
+                            timer: Math.random() * 200,
+                            period: 80 + Math.random() * 140,
+                        });
+                    }
+                }
+            }
+
+            // ── Hex Grid (cyber aesthetic) ────────────────────────────────────
+            const hexes = [];
+            const hexSize = 38;
+            const hexW = hexSize * 2;
+            const hexH = Math.sqrt(3) * hexSize;
+            for (let col = -1; col < 22; col++) {
+                for (let row = -1; row < 14; row++) {
+                    const ox = col * hexW * 0.75;
+                    const oy = row * hexH + (col % 2 === 0 ? 0 : hexH / 2);
+                    hexes.push({
+                        ox, oy,
+                        alpha: 0.03 + Math.random() * 0.05,
+                        flash: Math.random() < 0.06,
+                        flashTimer: Math.random() * 300,
+                        flashPeriod: 120 + Math.random() * 300,
+                    });
+                }
+            }
+
+            // ── Falling data streams (matrix-like) ───────────────────────────
+            const streamCount = 18;
+            const streams = Array.from({ length: streamCount }, () => ({
+                x: Math.random(),
+                y: Math.random(),
+                speed: 0.0008 + Math.random() * 0.0012,
+                chars: Array.from({length: 8+Math.floor(Math.random()*10)}, () =>
+                    String.fromCharCode(0x30A0 + Math.floor(Math.random()*96))),
+                alpha: 0.08 + Math.random() * 0.12,
+                color: Math.random() > 0.5 ? CYAN : BLUE,
+                size: 9 + Math.floor(Math.random()*5),
+            }));
+
+            // ── Robotic scan lines ────────────────────────────────────────────
+            let scanY = 0;
+
+            // ── Orbit rings (AI brain concept) ───────────────────────────────
+            const orbits = [
+                { cx: 0.72, cy: 0.45, rx: 0.16, ry: 0.09, angle: 0, speed: 0.003, color: BLUE },
+                { cx: 0.72, cy: 0.45, rx: 0.22, ry: 0.13, angle: Math.PI/3, speed: -0.002, color: CYAN },
+                { cx: 0.72, cy: 0.45, rx: 0.28, ry: 0.06, angle: Math.PI/1.5, speed: 0.0015, color: BLUE },
+            ];
+
+            // ── Helper: draw hexagon ──────────────────────────────────────────
+            function hexPath(cx, cy, size) {
+                ctx.beginPath();
+                for (let i = 0; i < 6; i++) {
+                    const a = (Math.PI / 3) * i - Math.PI / 6;
+                    const px = cx + size * Math.cos(a);
+                    const py = cy + size * Math.sin(a);
+                    i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+                }
+                ctx.closePath();
+            }
+
+            let frame = 0;
+
+            function draw() {
+                const w = W(), h = H();
+                ctx.clearRect(0, 0, w, h);
+
+                // Deep space background gradient
+                const bg = ctx.createLinearGradient(0, 0, w, h);
+                bg.addColorStop(0,   '#020510');
+                bg.addColorStop(0.5, '#030a1a');
+                bg.addColorStop(1,   '#020712');
+                ctx.fillStyle = bg;
+                ctx.fillRect(0, 0, w, h);
+
+                // ── Hex Grid ─────────────────────────────────────────────────
+                hexes.forEach(hx => {
+                    hx.flashTimer++;
+                    let alpha = hx.alpha;
+                    if (hx.flash) {
+                        const t = (hx.flashTimer % hx.flashPeriod) / hx.flashPeriod;
+                        if (t < 0.05) alpha = hx.alpha + 0.25 * (t / 0.05);
+                        else if (t < 0.12) alpha = hx.alpha + 0.25 * (1 - (t - 0.05) / 0.07);
+                    }
+                    ctx.strokeStyle = `rgba(15,98,254,${alpha})`;
+                    ctx.lineWidth = 0.5;
+                    hexPath(hx.ox, hx.oy, hexSize - 2);
+                    ctx.stroke();
+                });
+
+                // ── Quantum circuit horizontal wires ─────────────────────────
+                for (let r = 0; r < gridRows; r++) {
+                    const y = ((r + 0.5) / gridRows) * h;
+                    ctx.strokeStyle = `rgba(15,98,254,0.07)`;
+                    ctx.lineWidth = 0.8;
+                    ctx.setLineDash([6, 4]);
+                    ctx.beginPath();
+                    ctx.moveTo(0, y);
+                    ctx.lineTo(w * 0.55, y);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                }
+
+                // ── Quantum gates ─────────────────────────────────────────────
+                gates.forEach(g => {
+                    g.timer++;
+                    g.active = (g.timer % g.period) < 18;
+                    const x = g.cx * w * 0.55, y = g.cy * h;
+                    const sz = 10;
+                    const alpha = g.active ? 0.9 : 0.18;
+                    ctx.strokeStyle = g.active ? CYAN : `rgba(15,98,254,0.3)`;
+                    ctx.fillStyle = g.active ? `rgba(8,189,186,${alpha*0.15})` : `rgba(3,7,18,0.6)`;
+                    ctx.lineWidth = g.active ? 1.2 : 0.6;
+                    ctx.beginPath();
+                    ctx.rect(x - sz, y - sz, sz*2, sz*2);
+                    ctx.fill();
+                    ctx.stroke();
+                    ctx.fillStyle = g.active ? CYAN : `rgba(15,98,254,0.5)`;
+                    ctx.font = `bold ${g.active ? 11 : 9}px monospace`;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(g.type, x, y);
+                });
+
+                // ── Neural network connections ────────────────────────────────
+                const conDist = 0.22;
+                for (let i = 0; i < nodes.length; i++) {
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const dx = nodes[i].x - nodes[j].x;
+                        const dy = nodes[i].y - nodes[j].y;
+                        const dist = Math.sqrt(dx*dx + dy*dy);
+                        if (dist < conDist) {
+                            const alpha = (1 - dist / conDist) * 0.18;
+                            ctx.strokeStyle = `rgba(15,98,254,${alpha})`;
+                            ctx.lineWidth = 0.6;
+                            ctx.beginPath();
+                            ctx.moveTo(nodes[i].x * w, nodes[i].y * h);
+                            ctx.lineTo(nodes[j].x * w, nodes[j].y * h);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                // ── Neural nodes ──────────────────────────────────────────────
+                nodes.forEach(n => {
+                    n.x += n.vx; n.y += n.vy;
+                    if (n.x < 0 || n.x > 1) n.vx *= -1;
+                    if (n.y < 0 || n.y > 1) n.vy *= -1;
+                    n.pulse += n.pulseSpeed;
+                    const glow = 0.5 + 0.5 * Math.sin(n.pulse);
+                    const r = n.r * (1 + 0.4 * glow);
+                    const alpha = 0.4 + 0.5 * glow;
+
+                    // Glow halo
+                    const grad = ctx.createRadialGradient(
+                        n.x*w, n.y*h, 0,
+                        n.x*w, n.y*h, r * 5
+                    );
+                    grad.addColorStop(0, n.color.replace(')', `,${alpha})`).replace('rgb(', 'rgba(').replace('#0F62FE', `rgba(15,98,254,${alpha})`).replace('#08BDBA', `rgba(8,189,186,${alpha})`));
+                    grad.addColorStop(1, 'rgba(0,0,0,0)');
+                    ctx.beginPath();
+                    ctx.arc(n.x*w, n.y*h, r*5, 0, Math.PI*2);
+                    ctx.fillStyle = grad;
+                    ctx.fill();
+
+                    // Core dot
+                    ctx.beginPath();
+                    ctx.arc(n.x*w, n.y*h, r, 0, Math.PI*2);
+                    ctx.fillStyle = n.color === CYAN ? `rgba(8,189,186,${alpha})` : `rgba(15,98,254,${alpha})`;
+                    ctx.fill();
+                });
+
+                // ── Orbit rings ───────────────────────────────────────────────
+                orbits.forEach(o => {
+                    o.angle += o.speed;
+                    const cx = o.cx * w, cy = o.cy * h;
+                    ctx.save();
+                    ctx.translate(cx, cy);
+
+                    // Ellipse ring
+                    ctx.strokeStyle = o.color === BLUE ? 'rgba(15,98,254,0.18)' : 'rgba(8,189,186,0.14)';
+                    ctx.lineWidth = 0.8;
+                    ctx.beginPath();
+                    ctx.ellipse(0, 0, o.rx*w, o.ry*h, 0, 0, Math.PI*2);
+                    ctx.stroke();
+
+                    // Orbiting dot
+                    const dotX = Math.cos(o.angle) * o.rx*w;
+                    const dotY = Math.sin(o.angle) * o.ry*h;
+                    ctx.beginPath();
+                    ctx.arc(dotX, dotY, 3, 0, Math.PI*2);
+                    ctx.fillStyle = o.color === BLUE ? 'rgba(15,98,254,0.9)' : 'rgba(8,189,186,0.9)';
+                    ctx.fill();
+
+                    // Trail
+                    for (let t = 1; t <= 8; t++) {
+                        const ta = o.angle - t * 0.12 * Math.sign(o.speed);
+                        const tx = Math.cos(ta) * o.rx*w;
+                        const ty = Math.sin(ta) * o.ry*h;
+                        ctx.beginPath();
+                        ctx.arc(tx, ty, 2 * (1 - t/8), 0, Math.PI*2);
+                        ctx.fillStyle = o.color === BLUE
+                            ? `rgba(15,98,254,${0.6 * (1-t/8)})`
+                            : `rgba(8,189,186,${0.6 * (1-t/8)})`;
+                        ctx.fill();
+                    }
+                    ctx.restore();
+                });
+
+                // ── Data streams ──────────────────────────────────────────────
+                streams.forEach(s => {
+                    s.y += s.speed;
+                    if (s.y > 1.1) { s.y = -0.2; s.x = Math.random(); }
+                    const baseX = s.x * w;
+                    s.chars.forEach((ch, i) => {
+                        const charAlpha = s.alpha * (1 - i / s.chars.length) * (i === 0 ? 1.8 : 1);
+                        ctx.fillStyle = s.color === CYAN
+                            ? `rgba(8,189,186,${Math.min(1, charAlpha)})`
+                            : `rgba(15,98,254,${Math.min(1, charAlpha)})`;
+                        ctx.font = `${s.size}px monospace`;
+                        ctx.textAlign = 'left';
+                        ctx.fillText(ch, baseX, (s.y + i * 0.025) * h);
+                    });
+                });
+
+                // ── Robotic scan line ─────────────────────────────────────────
+                scanY = (scanY + 0.4) % h;
+                const scanGrad = ctx.createLinearGradient(0, scanY - 60, 0, scanY + 2);
+                scanGrad.addColorStop(0, 'rgba(8,189,186,0)');
+                scanGrad.addColorStop(1, 'rgba(8,189,186,0.035)');
+                ctx.fillStyle = scanGrad;
+                ctx.fillRect(0, scanY - 60, w, 62);
+
+                frame++;
+                requestAnimationFrame(draw);
+            }
+
+            draw();
+        })();
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
