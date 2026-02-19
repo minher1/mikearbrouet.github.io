@@ -583,92 +583,43 @@
             background: var(--bg-light);
         }
 
-        .gallery-grid {
-            display: grid;
-            gap: 24px;
-            margin-top: 40px;
-        }
+        
 
-        .gallery-item {
-            position: relative;
-            background: #f8f9fa;
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
-        }
+        
 
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+        
 
-        .gallery-item.afrotech {
-            background-image: url('afrotech-speaking.jpg');
-        }
+        
 
-        .gallery-item.afrotech-interview {
-            background-image: url('afrotech-interview.jpg');
-        }
+        
 
-        .gallery-item.afrotech-networking {
-            background-image: url('afrotech-networking.jpg');
-        }
+        
 
-        .gallery-item.itenwired {
-            background-image: url('itenwired-fullroom.jpg');
-        }
+        
 
-        .gallery-item.psc {
-            background-image: url('psc-teaching.jpg');
-        }
+        
 
-        .gallery-item.tainos-1 {
-            background-image: url('tainos-team-photo.jpg');
-        }
+        
 
-        .gallery-item.tainos-panel {
-            background-image: url('tainos-panel.jpg');
-        }
+        
 
-        .gallery-item.neocon {
-            background-image: url('neocon-speaking.jpg');
-        }
+        
 
-        .gallery-item.defcon {
-            background-image: url('defcon-audience.jpg');
-        }
+        
 
-        .gallery-item.uwf-1 {
-            background-image: url('uwf-genCyber-1.png');
-        }
+        
 
-        .gallery-item.uwf-2 {
-            background-image: url('uwf-genCyber-2.png');
-        }
+        
 
-        .gallery-item.uwf-teaching {
-            background-image: url('uwf-genCyber-teaching.png');
-        }
+        
 
-        .gallery-item.afrotech {
-            background-image: url('images/afrotech-speaking.jpg');
-        }
+        
 
-        .gallery-item.itenwired {
-            background-image: url('images/itenwired-speaking.jpg');
-        }
+        
 
-        .gallery-item.psc {
-            background-image: url('images/psc-teaching.jpg');
-        }
+        
 
-        .gallery-item:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow-lg);
-        }
+        
 
         .gallery-caption {
             position: absolute;
@@ -730,6 +681,157 @@
             font-size: 14px;
             color: var(--text-secondary);
             font-weight: 600;
+        }
+
+
+        /* Gallery Section - Carousel */
+        .gallery {
+            padding: 80px 24px;
+            background: var(--bg-light);
+        }
+
+        .gallery-carousel {
+            margin-top: 40px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Main Image Display */
+        .carousel-main {
+            position: relative;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .carousel-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/10;
+        }
+
+        #carousel-main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            background: #000;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 70%, transparent);
+            padding: 32px 24px 20px;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Navigation Arrows */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background: rgba(0,0,0,0.6);
+            border: none;
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .carousel-nav:hover {
+            background: rgba(15,98,254,0.9);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: 16px;
+        }
+
+        .carousel-next {
+            right: 16px;
+        }
+
+        /* Thumbnail Strip */
+        .carousel-thumbnails {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 8px 0;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .carousel-thumbnails::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .carousel-thumbnails::-webkit-scrollbar-track {
+            background: var(--bg);
+            border-radius: 3px;
+        }
+
+        .carousel-thumbnails::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .thumbnail {
+            flex-shrink: 0;
+            width: 120px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+        }
+
+        .thumbnail:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .thumbnail.active {
+            border-color: var(--primary);
+            opacity: 1;
+            box-shadow: 0 0 0 2px rgba(15,98,254,0.2);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Counter */
+        .carousel-counter {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        #carousel-current {
+            color: var(--primary);
+            font-size: 16px;
         }
 
         /* Credentials */
@@ -1066,9 +1168,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            
 
             .footer-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -1084,9 +1184,7 @@
                 grid-template-columns: repeat(3, 1fr);
             }
 
-            .gallery-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            
 
             .footer-grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -1969,7 +2067,8 @@
                         <div class="footer-column">
                             <h4>Resources</h4>
                             <ul class="footer-links">
-                                <li><a href="#">Tainos CyberCon</a></li>
+                                <li><a href="https://tainoscybercon.com/en/" target="_blank" rel="noopener noreferrer">Tainos CyberCon</a></li>
+                                <li><a href="https://www.yottasec.com/" target="_blank" rel="noopener noreferrer">YottaSec</a></li>
                                 <li><a href="#">Media Kit</a></li>
                                 <li><a href="#">Press</a></li>
                             </ul>
