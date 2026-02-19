@@ -2485,105 +2485,95 @@
 
 
         // ── Gallery Carousel ───────────────────────────────────────────────
-        document.addEventListener('DOMContentLoaded', function() {
-            const mainImage = document.getElementById('carousel-main-image');
-            const caption = document.getElementById('carousel-caption');
-            const currentSpan = document.getElementById('carousel-current');
-            const totalSpan = document.getElementById('carousel-total');
-            const thumbnails = document.querySelectorAll('.thumbnail');
-            const prevBtn = document.querySelector('.carousel-prev');
-            const nextBtn = document.querySelector('.carousel-next');
+        window.addEventListener('load', function() {
+            // Get all elements
+            const mainImg = document.getElementById('carousel-main-image');
+            const captionDiv = document.getElementById('carousel-caption');
+            const currentNum = document.getElementById('carousel-current');
+            const totalNum = document.getElementById('carousel-total');
+            const allThumbs = document.querySelectorAll('.thumbnail');
+            const prevButton = document.querySelector('.carousel-prev');
+            const nextButton = document.querySelector('.carousel-next');
             
-            console.log('Carousel initialized:', {
-                mainImage: !!mainImage,
-                caption: !!caption,
-                thumbnailCount: thumbnails.length,
-                prevBtn: !!prevBtn,
-                nextBtn: !!nextBtn
-            });
-            
-            if (!mainImage || !thumbnails.length) {
-                console.error('Carousel elements missing!');
+            // Safety check
+            if (!mainImg || allThumbs.length === 0) {
+                console.error('Carousel not initialized - missing elements');
                 return;
             }
-
-            let currentIndex = 0;
-            const totalImages = thumbnails.length;
             
-            if (totalSpan) totalSpan.textContent = totalImages;
-
-            function updateCarousel(index) {
-                console.log('Updating carousel to index:', index);
-                currentIndex = index;
-                const thumb = thumbnails[index];
+            let currentIdx = 0;
+            const totalImgs = allThumbs.length;
+            
+            // Set total count
+            if (totalNum) totalNum.textContent = totalImgs;
+            
+            // Function to change image
+            function showImage(index) {
+                currentIdx = index;
+                const thumb = allThumbs[index];
                 
-                if (!thumb) {
-                    console.error('Thumbnail not found at index:', index);
-                    return;
-                }
+                // Get data from thumbnail
+                const imgSrc = thumb.getAttribute('data-src');
+                const imgCaption = thumb.getAttribute('data-caption');
                 
                 // Update main image
-                const newSrc = thumb.getAttribute('data-src');
-                const newCaption = thumb.getAttribute('data-caption');
+                mainImg.src = imgSrc;
+                mainImg.alt = imgCaption;
                 
-                console.log('New image:', newSrc);
-                
-                mainImage.src = newSrc;
-                if (caption) caption.textContent = newCaption;
+                // Update caption
+                if (captionDiv) captionDiv.textContent = imgCaption;
                 
                 // Update counter
-                if (currentSpan) currentSpan.textContent = index + 1;
+                if (currentNum) currentNum.textContent = index + 1;
                 
-                // Update active thumbnail
-                thumbnails.forEach(t => t.classList.remove('active'));
+                // Update active state
+                allThumbs.forEach(function(t) {
+                    t.classList.remove('active');
+                });
                 thumb.classList.add('active');
                 
                 // Scroll thumbnail into view
-                thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }
-
-            // Thumbnail clicks
-            thumbnails.forEach((thumb, idx) => {
-                thumb.addEventListener('click', function(e) {
-                    console.log('Thumbnail clicked:', idx);
-                    e.preventDefault();
-                    updateCarousel(idx);
-                });
-            });
-
-            // Previous button
-            if (prevBtn) {
-                prevBtn.addEventListener('click', function(e) {
-                    console.log('Prev button clicked');
-                    e.preventDefault();
-                    const newIndex = currentIndex === 0 ? totalImages - 1 : currentIndex - 1;
-                    updateCarousel(newIndex);
+                thumb.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                    inline: 'center'
                 });
             }
-
-            // Next button
-            if (nextBtn) {
-                nextBtn.addEventListener('click', function(e) {
-                    console.log('Next button clicked');
-                    e.preventDefault();
-                    const newIndex = currentIndex === totalImages - 1 ? 0 : currentIndex + 1;
-                    updateCarousel(newIndex);
+            
+            // Add click handlers to thumbnails
+            allThumbs.forEach(function(thumb, index) {
+                thumb.addEventListener('click', function() {
+                    showImage(index);
                 });
-            }
-
-            // Keyboard navigation
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'ArrowLeft' && prevBtn) {
-                    prevBtn.click();
-                } else if (e.key === 'ArrowRight' && nextBtn) {
-                    nextBtn.click();
-                }
             });
             
-            console.log('Carousel setup complete');
+            // Previous button
+            if (prevButton) {
+                prevButton.addEventListener('click', function() {
+                    const newIdx = (currentIdx === 0) ? (totalImgs - 1) : (currentIdx - 1);
+                    showImage(newIdx);
+                });
+            }
+            
+            // Next button
+            if (nextButton) {
+                nextButton.addEventListener('click', function() {
+                    const newIdx = (currentIdx === totalImgs - 1) ? 0 : (currentIdx + 1);
+                    showImage(newIdx);
+                });
+            }
+            
+            // Keyboard support
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft' && prevButton) {
+                    prevButton.click();
+                } else if (e.key === 'ArrowRight' && nextButton) {
+                    nextButton.click();
+                }
+            });
         });
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
