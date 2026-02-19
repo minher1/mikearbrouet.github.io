@@ -1274,16 +1274,31 @@
                 padding: 48px 16px;
             }
 
-            .gallery-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
+            .carousel-image-container {
+                aspect-ratio: 4/3;
             }
 
-            /* Show captions always on mobile (no hover) */
-            .gallery-caption {
-                transform: translateY(0);
-                font-size: 11px;
-                padding: 12px 8px 8px;
+            .carousel-caption {
+                font-size: 13px;
+                padding: 24px 16px 16px;
+            }
+
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+            }
+
+            .carousel-prev {
+                left: 8px;
+            }
+
+            .carousel-next {
+                right: 8px;
+            }
+
+            .thumbnail {
+                width: 100px;
+                height: 66px;
             }
 
             /* ── About ── */
@@ -1629,62 +1644,77 @@
                         </p>
                     </div>
 
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="afrotech-speaking.jpg" alt="Speaking at AFROTECH 2025">
-                            <div class="gallery-caption">Speaking at AFROTECH™ 2025 - Houston, TX</div>
+                    <!-- Carousel Container -->
+                    <div class="gallery-carousel">
+                        <!-- Main Image Display -->
+                        <div class="carousel-main">
+                            <button class="carousel-nav carousel-prev" aria-label="Previous">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 18l-6-6 6-6"/>
+                                </svg>
+                            </button>
+                            
+                            <div class="carousel-image-container">
+                                <img id="carousel-main-image" src="afrotech-speaking.jpg" alt="Gallery Image">
+                                <div class="carousel-caption" id="carousel-caption">Speaking at AFROTECH™ 2025 - Houston, TX</div>
+                            </div>
+
+                            <button class="carousel-nav carousel-next" aria-label="Next">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 18l6-6-6-6"/>
+                                </svg>
+                            </button>
                         </div>
-                        <div class="gallery-item">
-                            <img src="afrotech-interview.jpg" alt="AFROTECH Interview">
-                            <div class="gallery-caption">AFROTECH™ - Media Interview</div>
+
+                        <!-- Thumbnail Strip -->
+                        <div class="carousel-thumbnails" id="carousel-thumbnails">
+                            <div class="thumbnail active" data-index="0" data-src="afrotech-speaking.jpg" data-caption="Speaking at AFROTECH™ 2025 - Houston, TX">
+                                <img src="afrotech-speaking.jpg" alt="Thumbnail 1">
+                            </div>
+                            <div class="thumbnail" data-index="1" data-src="afrotech-interview.jpg" data-caption="AFROTECH™ - Media Interview">
+                                <img src="afrotech-interview.jpg" alt="Thumbnail 2">
+                            </div>
+                            <div class="thumbnail" data-index="2" data-src="tainos-speaking-1.jpg" data-caption="Tainos CyberCon - Keynote Presentation">
+                                <img src="tainos-speaking-1.jpg" alt="Thumbnail 3">
+                            </div>
+                            <div class="thumbnail" data-index="3" data-src="itenwired-fullroom.jpg" data-caption="ITEN WIRED | TechNet CyberCoast - Packed Room">
+                                <img src="itenwired-fullroom.jpg" alt="Thumbnail 4">
+                            </div>
+                            <div class="thumbnail" data-index="4" data-src="afrotech-networking.jpg" data-caption="AFROTECH™ - Networking & Mentorship">
+                                <img src="afrotech-networking.jpg" alt="Thumbnail 5">
+                            </div>
+                            <div class="thumbnail" data-index="5" data-src="tainos-panel.jpg" data-caption="Tainos CyberCon - Panel Discussion">
+                                <img src="tainos-panel.jpg" alt="Thumbnail 6">
+                            </div>
+                            <div class="thumbnail" data-index="6" data-src="neocon-speaking.jpg" data-caption="NeoCON Conference - Engaging Presentation">
+                                <img src="neocon-speaking.jpg" alt="Thumbnail 7">
+                            </div>
+                            <div class="thumbnail" data-index="7" data-src="uwf-genCyber-teaching.png" data-caption="UWF Center for Cybersecurity - GenCyber Camp">
+                                <img src="uwf-genCyber-teaching.png" alt="Thumbnail 8">
+                            </div>
+                            <div class="thumbnail" data-index="8" data-src="defcon-audience.jpg" data-caption="DEFCON - Main Stage Audience">
+                                <img src="defcon-audience.jpg" alt="Thumbnail 9">
+                            </div>
+                            <div class="thumbnail" data-index="9" data-src="psc-teaching.jpg" data-caption="Pensacola State College - Educational Session">
+                                <img src="psc-teaching.jpg" alt="Thumbnail 10">
+                            </div>
+                            <div class="thumbnail" data-index="10" data-src="uwf-genCyber-1.png" data-caption="UWF GenCyber - Mentoring Future Cybersecurity Leaders">
+                                <img src="uwf-genCyber-1.png" alt="Thumbnail 11">
+                            </div>
+                            <div class="thumbnail" data-index="11" data-src="uwf-genCyber-2.png" data-caption="UWF GenCyber - Student Achievement Recognition">
+                                <img src="uwf-genCyber-2.png" alt="Thumbnail 12">
+                            </div>
+                            <div class="thumbnail" data-index="12" data-src="speaking-presentation.jpg" data-caption="Professional Speaking Engagement - Technology Leadership">
+                                <img src="speaking-presentation.jpg" alt="Thumbnail 13">
+                            </div>
+                            <div class="thumbnail" data-index="13" data-src="junior-leadership-unblurred.jpg" data-caption="Junior Leadership Santa Rosa - IHMC Educational Program">
+                                <img src="junior-leadership-unblurred.jpg" alt="Thumbnail 14">
+                            </div>
                         </div>
-                        <div class="gallery-item">
-                            <img src="tainos-speaking-1.jpg" alt="Tainos CyberCon Keynote">
-                            <div class="gallery-caption">Tainos CyberCon - Keynote Presentation</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="itenwired-fullroom.jpg" alt="ITEN WIRED Conference">
-                            <div class="gallery-caption">ITEN WIRED | TechNet CyberCoast - Packed Room</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="afrotech-networking.jpg" alt="AFROTECH Networking">
-                            <div class="gallery-caption">AFROTECH™ - Networking & Mentorship</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="tainos-panel.jpg" alt="Tainos CyberCon Panel">
-                            <div class="gallery-caption">Tainos CyberCon - Panel Discussion</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="neocon-speaking.jpg" alt="NeoCON Conference">
-                            <div class="gallery-caption">NeoCON Conference - Engaging Presentation</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="uwf-genCyber-teaching.png" alt="UWF GenCyber Teaching">
-                            <div class="gallery-caption">UWF Center for Cybersecurity - GenCyber Camp</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="defcon-audience.jpg" alt="DEFCON Conference">
-                            <div class="gallery-caption">DEFCON - Main Stage Audience</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="psc-teaching.jpg" alt="Pensacola State College">
-                            <div class="gallery-caption">Pensacola State College - Educational Session</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="uwf-genCyber-1.png" alt="UWF GenCyber Mentoring">
-                            <div class="gallery-caption">UWF GenCyber - Mentoring Future Cybersecurity Leaders</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="uwf-genCyber-2.png" alt="UWF GenCyber Achievement">
-                            <div class="gallery-caption">UWF GenCyber - Student Achievement Recognition</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="speaking-presentation.jpg" alt="Speaking Presentation">
-                            <div class="gallery-caption">Professional Speaking Engagement - Technology Leadership</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="junior-leadership-unblurred.jpg" alt="Junior Leadership Santa Rosa">
-                            <div class="gallery-caption">Junior Leadership Santa Rosa - IHMC Educational Program</div>
+
+                        <!-- Counter -->
+                        <div class="carousel-counter">
+                            <span id="carousel-current">1</span> / <span id="carousel-total">14</span>
                         </div>
                     </div>
                 </div>
@@ -2353,6 +2383,70 @@
             document.querySelector('.hero-content')?.classList.add('visible');
             document.querySelector('.hero-image')?.classList.add('visible');
         }, 100);
+
+
+        // ── Gallery Carousel ───────────────────────────────────────────────
+        (function() {
+            const mainImage = document.getElementById('carousel-main-image');
+            const caption = document.getElementById('carousel-caption');
+            const currentSpan = document.getElementById('carousel-current');
+            const totalSpan = document.getElementById('carousel-total');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const prevBtn = document.querySelector('.carousel-prev');
+            const nextBtn = document.querySelector('.carousel-next');
+            
+            if (!mainImage || !thumbnails.length) return;
+
+            let currentIndex = 0;
+            const totalImages = thumbnails.length;
+            
+            totalSpan.textContent = totalImages;
+
+            function updateCarousel(index) {
+                currentIndex = index;
+                const thumb = thumbnails[index];
+                
+                // Update main image
+                mainImage.src = thumb.dataset.src;
+                caption.textContent = thumb.dataset.caption;
+                
+                // Update counter
+                currentSpan.textContent = index + 1;
+                
+                // Update active thumbnail
+                thumbnails.forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+                
+                // Scroll thumbnail into view
+                thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+
+            // Thumbnail clicks
+            thumbnails.forEach((thumb, idx) => {
+                thumb.addEventListener('click', () => updateCarousel(idx));
+            });
+
+            // Previous button
+            prevBtn?.addEventListener('click', () => {
+                const newIndex = currentIndex === 0 ? totalImages - 1 : currentIndex - 1;
+                updateCarousel(newIndex);
+            });
+
+            // Next button
+            nextBtn?.addEventListener('click', () => {
+                const newIndex = currentIndex === totalImages - 1 ? 0 : currentIndex + 1;
+                updateCarousel(newIndex);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevBtn?.click();
+                } else if (e.key === 'ArrowRight') {
+                    nextBtn?.click();
+                }
+            });
+        })();
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
