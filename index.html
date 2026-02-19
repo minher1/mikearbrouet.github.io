@@ -83,47 +83,59 @@ nav{
 
 /* ─── HERO ─── */
 #home{
-  min-height:92vh;display:grid;grid-template-columns:1fr 1fr;
-  align-items:center;padding:80px 52px;gap:60px;
-  position:relative;overflow:hidden;
+  min-height: calc(100vh - 66px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 0 7vw;
+  gap: 5vw;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+#home::before{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background: radial-gradient(ellipse 60% 70% at 70% 50%, rgba(26,140,122,0.07) 0%, transparent 70%);
 }
 #home::after{
-  content:'';position:absolute;top:-20%;right:-10%;
-  width:700px;height:700px;
-  background:radial-gradient(circle,rgba(26,140,122,0.09) 0%,transparent 65%);
+  content:'';position:absolute;top:50%;right:5%;transform:translateY(-50%);
+  width:min(700px,50vw);height:min(700px,50vw);
+  background:radial-gradient(circle,rgba(26,140,122,0.08) 0%,transparent 65%);
   border-radius:50%;pointer-events:none;
   animation:orb 9s ease-in-out infinite;
 }
-@keyframes orb{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.1);opacity:1}}
+@keyframes orb{0%,100%{transform:translateY(-50%) scale(1);opacity:.5}50%{transform:translateY(-50%) scale(1.08);opacity:1}}
 
-.hero-left{position:relative;z-index:2}
-.eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:20px}
-.eyebrow-line{width:28px;height:1px;background:var(--teal-lt)}
+.hero-left{position:relative;z-index:2;max-width:560px;}
+.eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.eyebrow-line{width:28px;height:1px;background:var(--teal-lt);flex-shrink:0}
 .eyebrow-text{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-lt)}
 
 .hero-name-mike{
-  font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;
-  letter-spacing:.5em;color:var(--muted);display:block;margin-bottom:2px;
+  font-family:'Cormorant Garamond',serif;font-size:clamp(13px,1.1vw,18px);font-weight:300;
+  letter-spacing:.5em;color:var(--muted);display:block;margin-bottom:4px;
 }
 .hero-name-last{
-  font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,6.5vw,90px);
-  letter-spacing:.05em;color:var(--white);display:block;line-height:1;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(64px,7.5vw,112px);
+  letter-spacing:.03em;color:var(--white);display:block;line-height:.95;
+  margin-bottom:4px;
 }
 .hero-roles{
-  display:flex;align-items:center;flex-wrap:wrap;gap:8px;
-  font-size:12px;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--teal-lt);margin:16px 0 28px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;
+  font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--teal-lt);margin:20px 0 24px;
 }
-.role-sep{width:3px;height:3px;background:var(--teal-lt);border-radius:50%;opacity:.5}
-.hero-body{font-size:15px;line-height:1.8;color:var(--muted);max-width:480px;margin-bottom:16px}
+.role-sep{width:3px;height:3px;background:var(--teal-lt);border-radius:50%;opacity:.5;flex-shrink:0}
+.hero-body{font-size:15px;line-height:1.8;color:var(--muted);margin-bottom:20px}
 
 .afrotech-badge{
   display:inline-flex;align-items:center;gap:10px;
   background:rgba(200,169,110,0.1);border:1px solid rgba(200,169,110,0.35);
-  border-radius:3px;padding:10px 18px;margin-bottom:36px;
+  border-radius:3px;padding:10px 18px;margin-bottom:32px;
   font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
 }
-.afrotech-badge-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse-gold 2s infinite}
+.afrotech-badge-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0;animation:pulse-gold 2s infinite}
 @keyframes pulse-gold{0%,100%{opacity:1}50%{opacity:.3}}
 
 .hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
@@ -131,14 +143,14 @@ nav{
   background:var(--teal-lt);color:var(--bg);
   font-size:12px;letter-spacing:.14em;text-transform:uppercase;
   font-weight:600;padding:13px 28px;border-radius:3px;text-decoration:none;
-  transition:background .2s;
+  transition:background .2s;white-space:nowrap;
 }
 .btn-primary:hover{background:var(--cyan)}
 .btn-outline{
   color:var(--teal-lt);border:1px solid rgba(26,140,122,0.4);
   font-size:12px;letter-spacing:.14em;text-transform:uppercase;
   padding:12px 24px;border-radius:3px;text-decoration:none;
-  transition:border-color .2s,color .2s;
+  transition:border-color .2s,color .2s;white-space:nowrap;
 }
 .btn-outline:hover{border-color:var(--cyan);color:var(--cyan)}
 .btn-ghost{
@@ -147,19 +159,28 @@ nav{
 }
 
 /* Hero right — portrait */
-.hero-right{position:relative;z-index:2;display:flex;justify-content:center}
+.hero-right{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:center;
+  height:100%;
+  padding: 48px 0;
+}
 .portrait-frame{
-  position:relative;width:440px;height:510px;
+  position:relative;
+  width: min(420px, 38vw);
+  height: min(520px, 46vw);
+  min-width: 280px;
+  min-height: 340px;
 }
 .portrait-frame::before{
-  content:'';position:absolute;top:-10px;left:-10px;
-  width:calc(100% - 50px);height:calc(100% - 50px);
+  content:'';position:absolute;top:-12px;left:-12px;
+  width:calc(100% - 40px);height:calc(100% - 40px);
   border-top:2px solid var(--teal);border-left:2px solid var(--teal);
   z-index:3;pointer-events:none;
 }
 .portrait-frame::after{
-  content:'';position:absolute;bottom:-10px;right:-10px;
-  width:calc(100% - 50px);height:calc(100% - 50px);
+  content:'';position:absolute;bottom:-12px;right:-12px;
+  width:calc(100% - 40px);height:calc(100% - 40px);
   border-bottom:2px solid var(--teal);border-right:2px solid var(--teal);
   z-index:3;pointer-events:none;
 }
