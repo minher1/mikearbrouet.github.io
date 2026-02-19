@@ -301,8 +301,9 @@ nav{
 .gallery-item.wide{grid-column:span 2}
 .gallery-item.tall{grid-row:span 2}
 .gallery-img{
-  width:100%;height:100%;object-fit:cover;
+  width:100%;height:100%;object-fit:cover;object-position:center;
   transition:transform .4s;filter:brightness(0.85);
+  background:var(--surface);
 }
 .gallery-item:hover .gallery-img{transform:scale(1.04);filter:brightness(1)}
 .gallery-placeholder{
@@ -600,14 +601,9 @@ footer{
     <!-- AFROTECH — full-width featured -->
     <div class="conf-card featured">
       <div class="conf-card-hero-img">
+        <img src="afrotech-speaking.jpg" alt="Mike Arbrouet speaking at AFROTECH 2025" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
         <div class="conf-hero-overlay"></div>
         <div class="conf-hero-badge">★ Featured Speaker</div>
-        <!-- Placeholder for afrotech-speaking.jpg -->
-        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:60px;letter-spacing:.05em;color:var(--gold);opacity:.25;line-height:1">AFROTECH</div>
-          <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)">Speaking photo loads from your server</div>
-          <div style="font-size:10px;color:var(--dim);opacity:.5">afrotech-speaking.jpg</div>
-        </div>
       </div>
       <div class="conf-card-body">
         <div class="conf-logo-placeholder">AFROTECH™</div>
@@ -678,43 +674,61 @@ footer{
   <p class="section-sub">Moments from conferences, keynotes, and panel discussions.</p>
 
   <div class="gallery-grid">
-    <!-- Gallery items. Images reference your live server paths -->
-    <!-- Wide featured -->
     <div class="gallery-item wide tall">
-      <div class="gallery-placeholder">
-        <div class="gallery-ph-icon">📸</div>
-        <div class="gallery-ph-label">AFROTECH™ 2025<br>Speaking — Houston, TX</div>
-        <div style="font-size:8px;color:var(--dim);margin-top:4px;opacity:.5">afrotech-speaking.jpg</div>
-      </div>
+      <img class="gallery-img" src="afrotech-speaking.jpg" alt="Speaking at AFROTECH 2025"/>
       <div class="gallery-overlay"><div class="gallery-caption">Speaking at AFROTECH™ 2025 — Houston, TX</div></div>
     </div>
     <div class="gallery-item">
-      <div class="gallery-placeholder"><div class="gallery-ph-icon">📸</div><div class="gallery-ph-label">AfroTech Interview</div></div>
+      <img class="gallery-img" src="afrotech-interview.jpg" alt="AfroTech Interview"/>
       <div class="gallery-overlay"><div class="gallery-caption">AfroTech Interview 2025</div></div>
     </div>
     <div class="gallery-item">
-      <div class="gallery-placeholder"><div class="gallery-ph-icon">📸</div><div class="gallery-ph-label">Tainos CyberCon Speaking</div></div>
+      <img class="gallery-img" src="tainos-speaking-1.jpg" alt="Tainos CyberCon Speaking"/>
       <div class="gallery-overlay"><div class="gallery-caption">Tainos CyberCon — Keynote</div></div>
     </div>
     <div class="gallery-item">
-      <div class="gallery-placeholder"><div class="gallery-ph-icon">📸</div><div class="gallery-ph-label">ITEN WIRED Full Room</div></div>
+      <img class="gallery-img" src="itenwired-fullroom.jpg" alt="ITEN WIRED Full Room"/>
       <div class="gallery-overlay"><div class="gallery-caption">ITEN WIRED | TechNet CyberCoast 2025</div></div>
     </div>
     <div class="gallery-item">
-      <div class="gallery-placeholder"><div class="gallery-ph-icon">📸</div><div class="gallery-ph-label">AfroTech Networking</div></div>
+      <img class="gallery-img" src="afrotech-networking.jpg" alt="AfroTech Networking"/>
       <div class="gallery-overlay"><div class="gallery-caption">AfroTech Networking Session</div></div>
     </div>
     <div class="gallery-item">
-      <div class="gallery-placeholder"><div class="gallery-ph-icon">📸</div><div class="gallery-ph-label">Tainos Panel</div></div>
+      <img class="gallery-img" src="tainos-panel.jpg" alt="Tainos Panel"/>
       <div class="gallery-overlay"><div class="gallery-caption">Tainos CyberCon Panel Discussion</div></div>
     </div>
     <div class="gallery-item">
-      <div class="gallery-placeholder"><div class="gallery-ph-icon">📸</div><div class="gallery-ph-label">NolaCon Speaking</div></div>
+      <img class="gallery-img" src="neocon-speaking.jpg" alt="NolaCon Speaking"/>
       <div class="gallery-overlay"><div class="gallery-caption">NolaCon Conference</div></div>
     </div>
     <div class="gallery-item">
-      <div class="gallery-placeholder"><div class="gallery-ph-icon">📸</div><div class="gallery-ph-label">UWF GenCyber</div></div>
+      <img class="gallery-img" src="uwf-genCyber-teaching.png" alt="UWF GenCyber"/>
       <div class="gallery-overlay"><div class="gallery-caption">UWF GenCyber — Contributor</div></div>
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-img" src="tainos-speaking-full.jpg" alt="Tainos Speaking Full"/>
+      <div class="gallery-overlay"><div class="gallery-caption">Tainos CyberCon — Full Stage</div></div>
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-img" src="itenwired-speaking.jpg" alt="ITEN WIRED Speaking"/>
+      <div class="gallery-overlay"><div class="gallery-caption">ITEN WIRED — On Stage</div></div>
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-img" src="psc-teaching.jpg" alt="Teaching"/>
+      <div class="gallery-overlay"><div class="gallery-caption">Educational Session</div></div>
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-img" src="speaking-presentation.jpg" alt="Speaking Presentation"/>
+      <div class="gallery-overlay"><div class="gallery-caption">Conference Presentation</div></div>
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-img" src="uwf-genCyber-1.png" alt="UWF GenCyber"/>
+      <div class="gallery-overlay"><div class="gallery-caption">UWF GenCyber Program</div></div>
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-img" src="junior-leadership-unblurred.jpg" alt="Junior Leadership"/>
+      <div class="gallery-overlay"><div class="gallery-caption">Junior Leadership Program</div></div>
     </div>
   </div>
 
