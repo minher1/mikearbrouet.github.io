@@ -489,13 +489,7 @@
             background-image: url('tainos-team-photo.jpg');
         }
 
-        .featured-card-image.afrotech {
-            background-image: url('images/afrotech-speaking.jpg');
-        }
 
-        .featured-card-image.itenwired {
-            background-image: url('images/itenwired-speaking.jpg');
-        }
 
         .featured-card-content {
             padding: 32px;
@@ -1596,7 +1590,7 @@
                                 <div class="stat-label">Years</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-number">23</div>
+                                <div class="stat-number">Multiple</div>
                                 <div class="stat-label">Certifications</div>
                             </div>
                             <div class="stat-item">
@@ -2486,7 +2480,9 @@
 
         // ── Gallery Carousel ───────────────────────────────────────────────
         (function() {
+            console.log('Carousel: Script starting...');
             var mainImg = document.getElementById('carousel-main-image');
+            console.log('Carousel: mainImg =', mainImg);
             var captionDiv = document.getElementById('carousel-caption');
             var currentNum = document.getElementById('carousel-current');
             var totalNum = document.getElementById('carousel-total');
@@ -2504,10 +2500,12 @@
             if (totalNum) totalNum.textContent = totalImgs;
             
             function showImage(index) {
+                console.log('Carousel: showImage called with index', index);
                 currentIdx = index;
                 var thumb = allThumbs[index];
                 var imgSrc = thumb.getAttribute('data-src');
                 var imgCaption = thumb.getAttribute('data-caption');
+                console.log('Carousel: changing image to', imgSrc);
                 
                 mainImg.src = imgSrc;
                 if (captionDiv) captionDiv.textContent = imgCaption;
@@ -2528,17 +2526,27 @@
             }
             
             if (prevButton) {
-                prevButton.addEventListener('click', function() {
+                console.log('Carousel: prev button found, adding listener');
+                prevButton.addEventListener('click', function(e) {
+                    console.log('Carousel: PREV button clicked!');
+                    e.preventDefault();
                     var newIdx = (currentIdx === 0) ? (totalImgs - 1) : (currentIdx - 1);
                     showImage(newIdx);
                 });
+            } else {
+                console.error('Carousel: prev button NOT FOUND');
             }
             
             if (nextButton) {
-                nextButton.addEventListener('click', function() {
+                console.log('Carousel: next button found, adding listener');
+                nextButton.addEventListener('click', function(e) {
+                    console.log('Carousel: NEXT button clicked!');
+                    e.preventDefault();
                     var newIdx = (currentIdx === totalImgs - 1) ? 0 : (currentIdx + 1);
                     showImage(newIdx);
                 });
+            } else {
+                console.error('Carousel: next button NOT FOUND');
             }
         })();
 
