@@ -460,6 +460,146 @@ footer{
   border-right:1px solid rgba(26,140,122,0.08);white-space:nowrap;flex-shrink:0;
 }
 .cred-dot{width:4px;height:4px;background:var(--teal-lt);border-radius:50%}
+
+/* ─── CAROUSEL ─── */
+.gallery-carousel-wrap{position:relative;overflow:hidden;width:100%}
+.gallery-track{
+  display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);
+  will-change:transform;
+}
+.gallery-slide{
+  flex:0 0 100%;position:relative;height:420px;overflow:hidden;
+}
+@media(min-width:768px){
+  .gallery-slide{height:500px;flex:0 0 50%}
+}
+@media(min-width:1024px){
+  .gallery-slide{flex:0 0 33.333%}
+}
+.gallery-slide img{
+  width:100%;height:100%;object-fit:cover;object-position:center;
+  display:block;filter:brightness(0.82);transition:filter .3s;
+}
+.gallery-slide:hover img{filter:brightness(1)}
+.gallery-slide .gallery-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(7,17,26,0.88) 0%,transparent 55%);
+  display:flex;align-items:flex-end;padding:20px;
+  opacity:0;transition:opacity .3s;
+}
+.gallery-slide:hover .gallery-overlay{opacity:1}
+.gallery-caption{font-size:12px;letter-spacing:.08em;color:var(--white);line-height:1.4}
+
+/* Carousel controls */
+.carousel-controls{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:20px;
+}
+.carousel-arrows{display:flex;gap:8px}
+.carousel-btn{
+  width:44px;height:44px;border-radius:3px;border:1px solid rgba(26,140,122,0.3);
+  background:transparent;color:var(--teal-lt);font-size:18px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background .2s,border-color .2s;
+}
+.carousel-btn:hover{background:rgba(26,140,122,0.12);border-color:var(--teal-lt)}
+.carousel-dots{display:flex;gap:6px;align-items:center}
+.carousel-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--dim);cursor:pointer;transition:background .2s,transform .2s;border:none;padding:0;
+}
+.carousel-dot.active{background:var(--teal-lt);transform:scale(1.3)}
+.carousel-counter{
+  font-size:11px;letter-spacing:.14em;color:var(--dim);
+  font-family:'Bebas Neue',sans-serif;font-size:16px;
+}
+
+/* ─── MOBILE RESPONSIVE ─── */
+@media(max-width:900px){
+  /* Nav */
+  nav{padding:0 20px;position:relative}
+  .nav-links{display:none}
+  .nav-mobile-toggle{
+    display:flex;flex-direction:column;gap:5px;cursor:pointer;
+    background:none;border:none;padding:8px;
+  }
+  .nav-mobile-toggle span{
+    width:22px;height:2px;background:var(--white);border-radius:2px;
+    transition:transform .3s,opacity .3s;display:block;
+  }
+  .nav-mobile-open .nav-links{
+    display:flex;flex-direction:column;gap:0;
+    position:absolute;top:66px;left:0;right:0;
+    background:rgba(7,17,26,0.98);backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(26,140,122,0.2);
+    padding:8px 0;z-index:200;
+  }
+  .nav-mobile-open .nav-link{padding:14px 24px;border-bottom:1px solid rgba(26,140,122,0.06)}
+  .nav-mobile-open .nav-cta{margin:12px 24px;display:block;text-align:center}
+
+  /* Hero */
+  #home{
+    grid-template-columns:1fr;min-height:auto;
+    padding:48px 24px 40px;gap:40px;
+  }
+  #home::after{display:none}
+  .hero-right{order:-1}
+  .portrait-frame{width:100%;max-width:360px;height:380px;margin:0 auto}
+  .portrait-frame::before,.portrait-frame::after{display:none}
+  .hero-name-last{font-size:clamp(44px,10vw,72px)}
+  .hero-roles{font-size:10px;gap:6px}
+  .hero-body{font-size:14px}
+  .hero-actions{flex-direction:column;gap:10px;align-items:stretch}
+  .btn-primary,.btn-outline{text-align:center;padding:14px}
+
+  /* Stats bar */
+  .stats-bar{flex-wrap:wrap}
+  .stat-item{flex:0 0 50%;border-right:none;border-bottom:1px solid rgba(26,140,122,0.1);padding:16px 20px}
+  .stat-item:last-child{flex:0 0 100%;border-bottom:none}
+
+  /* Cred strip */
+  .cred-strip{overflow-x:auto}
+
+  /* Featured speaking */
+  .conf-card.featured{grid-template-columns:1fr}
+  .conf-card-hero-img{min-height:220px}
+  .conf-grid{grid-template-columns:1fr}
+  .section{padding:56px 24px}
+
+  /* About */
+  #about{grid-template-columns:1fr}
+  .about-left{padding:48px 24px}
+  .about-right{padding:48px 24px}
+  .about-stats-grid{grid-template-columns:1fr 1fr}
+
+  /* Credentials */
+  .creds-grid{grid-template-columns:1fr 1fr}
+
+  /* Topics */
+  .topics-grid{grid-template-columns:1fr}
+
+  /* Contact */
+  .contact-grid{grid-template-columns:1fr;gap:32px}
+  .form-row{grid-template-columns:1fr}
+
+  /* Footer */
+  footer{padding:40px 24px 28px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center}
+
+  /* Speaking meta */
+  .speaking-meta{gap:20px}
+}
+
+@media(max-width:600px){
+  .creds-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .about-stats-grid{grid-template-columns:1fr 1fr}
+  .stat-item{flex:0 0 100%}
+  .conf-card-body{padding:24px 20px}
+  .section-h2{font-size:28px}
+}
+
 </style>
 </head>
 <body>
@@ -475,7 +615,10 @@ footer{
       <span class="logo-word-last">ARBROUET</span>
     </div>
   </a>
-  <div class="nav-links">
+  <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
     <a href="#home"        class="nav-link active">Home</a>
     <a href="#speaking"    class="nav-link">Speaking</a>
     <a href="#gallery"     class="nav-link">Gallery</a>
@@ -673,68 +816,151 @@ footer{
   <h2 class="section-h2">Photo Gallery</h2>
   <p class="section-sub">Moments from conferences, keynotes, and panel discussions.</p>
 
-  <div class="gallery-grid">
-    <div class="gallery-item wide tall">
-      <img class="gallery-img" src="afrotech-speaking.jpg" alt="Speaking at AFROTECH 2025"/>
+  <div class="gallery-carousel-wrap" id="galleryCarousel">
+    <div class="gallery-track" id="galleryTrack">
+    <div class="gallery-slide">
+      <img src="afrotech-speaking.jpg" alt="Speaking at AFROTECH™ 2025 — Houston, TX" loading="lazy"/>
       <div class="gallery-overlay"><div class="gallery-caption">Speaking at AFROTECH™ 2025 — Houston, TX</div></div>
     </div>
-    <div class="gallery-item">
-      <img class="gallery-img" src="afrotech-interview.jpg" alt="AfroTech Interview"/>
+    <div class="gallery-slide">
+      <img src="afrotech-interview.jpg" alt="AfroTech Interview 2025" loading="lazy"/>
       <div class="gallery-overlay"><div class="gallery-caption">AfroTech Interview 2025</div></div>
     </div>
-    <div class="gallery-item">
-      <img class="gallery-img" src="tainos-speaking-1.jpg" alt="Tainos CyberCon Speaking"/>
-      <div class="gallery-overlay"><div class="gallery-caption">Tainos CyberCon — Keynote</div></div>
-    </div>
-    <div class="gallery-item">
-      <img class="gallery-img" src="itenwired-fullroom.jpg" alt="ITEN WIRED Full Room"/>
-      <div class="gallery-overlay"><div class="gallery-caption">ITEN WIRED | TechNet CyberCoast 2025</div></div>
-    </div>
-    <div class="gallery-item">
-      <img class="gallery-img" src="afrotech-networking.jpg" alt="AfroTech Networking"/>
+    <div class="gallery-slide">
+      <img src="afrotech-networking.jpg" alt="AfroTech Networking Session" loading="lazy"/>
       <div class="gallery-overlay"><div class="gallery-caption">AfroTech Networking Session</div></div>
     </div>
-    <div class="gallery-item">
-      <img class="gallery-img" src="tainos-panel.jpg" alt="Tainos Panel"/>
-      <div class="gallery-overlay"><div class="gallery-caption">Tainos CyberCon Panel Discussion</div></div>
+    <div class="gallery-slide">
+      <img src="tainos-speaking-1.jpg" alt="Tainos CyberCon — Keynote" loading="lazy"/>
+      <div class="gallery-overlay"><div class="gallery-caption">Tainos CyberCon — Keynote</div></div>
     </div>
-    <div class="gallery-item">
-      <img class="gallery-img" src="neocon-speaking.jpg" alt="NolaCon Speaking"/>
-      <div class="gallery-overlay"><div class="gallery-caption">NolaCon Conference</div></div>
-    </div>
-    <div class="gallery-item">
-      <img class="gallery-img" src="uwf-genCyber-teaching.png" alt="UWF GenCyber"/>
-      <div class="gallery-overlay"><div class="gallery-caption">UWF GenCyber — Contributor</div></div>
-    </div>
-    <div class="gallery-item">
-      <img class="gallery-img" src="tainos-speaking-full.jpg" alt="Tainos Speaking Full"/>
+    <div class="gallery-slide">
+      <img src="tainos-speaking-full.jpg" alt="Tainos CyberCon — Full Stage" loading="lazy"/>
       <div class="gallery-overlay"><div class="gallery-caption">Tainos CyberCon — Full Stage</div></div>
     </div>
-    <div class="gallery-item">
-      <img class="gallery-img" src="itenwired-speaking.jpg" alt="ITEN WIRED Speaking"/>
+    <div class="gallery-slide">
+      <img src="tainos-panel.jpg" alt="Tainos CyberCon Panel Discussion" loading="lazy"/>
+      <div class="gallery-overlay"><div class="gallery-caption">Tainos CyberCon Panel Discussion</div></div>
+    </div>
+    <div class="gallery-slide">
+      <img src="itenwired-fullroom.jpg" alt="ITEN WIRED | TechNet CyberCoast 2025" loading="lazy"/>
+      <div class="gallery-overlay"><div class="gallery-caption">ITEN WIRED | TechNet CyberCoast 2025</div></div>
+    </div>
+    <div class="gallery-slide">
+      <img src="itenwired-speaking.jpg" alt="ITEN WIRED — On Stage" loading="lazy"/>
       <div class="gallery-overlay"><div class="gallery-caption">ITEN WIRED — On Stage</div></div>
     </div>
-    <div class="gallery-item">
-      <img class="gallery-img" src="psc-teaching.jpg" alt="Teaching"/>
-      <div class="gallery-overlay"><div class="gallery-caption">Educational Session</div></div>
+    <div class="gallery-slide">
+      <img src="neocon-speaking.jpg" alt="NolaCon Conference" loading="lazy"/>
+      <div class="gallery-overlay"><div class="gallery-caption">NolaCon Conference</div></div>
     </div>
-    <div class="gallery-item">
-      <img class="gallery-img" src="speaking-presentation.jpg" alt="Speaking Presentation"/>
-      <div class="gallery-overlay"><div class="gallery-caption">Conference Presentation</div></div>
+    <div class="gallery-slide">
+      <img src="uwf-genCyber-teaching.png" alt="UWF GenCyber — Contributor" loading="lazy"/>
+      <div class="gallery-overlay"><div class="gallery-caption">UWF GenCyber — Contributor</div></div>
     </div>
-    <div class="gallery-item">
-      <img class="gallery-img" src="uwf-genCyber-1.png" alt="UWF GenCyber"/>
+    <div class="gallery-slide">
+      <img src="uwf-genCyber-1.png" alt="UWF GenCyber Program" loading="lazy"/>
       <div class="gallery-overlay"><div class="gallery-caption">UWF GenCyber Program</div></div>
     </div>
-    <div class="gallery-item">
-      <img class="gallery-img" src="junior-leadership-unblurred.jpg" alt="Junior Leadership"/>
+    <div class="gallery-slide">
+      <img src="psc-teaching.jpg" alt="Educational Session" loading="lazy"/>
+      <div class="gallery-overlay"><div class="gallery-caption">Educational Session</div></div>
+    </div>
+    <div class="gallery-slide">
+      <img src="speaking-presentation.jpg" alt="Conference Presentation" loading="lazy"/>
+      <div class="gallery-overlay"><div class="gallery-caption">Conference Presentation</div></div>
+    </div>
+    <div class="gallery-slide">
+      <img src="junior-leadership-unblurred.jpg" alt="Junior Leadership Program" loading="lazy"/>
       <div class="gallery-overlay"><div class="gallery-caption">Junior Leadership Program</div></div>
+    </div>
     </div>
   </div>
 
-  <div style="text-align:center;margin-top:28px">
-    <a href="#" class="btn-outline">View Full Gallery (14 Photos)</a>
+  <div class="carousel-controls">
+    <div class="carousel-dots" id="carouselDots">
+      <button class="carousel-dot active" data-idx="0" aria-label="Slide 1"></button>
+      <button class="carousel-dot" data-idx="1" aria-label="Slide 2"></button>
+      <button class="carousel-dot" data-idx="2" aria-label="Slide 3"></button>
+      <button class="carousel-dot" data-idx="3" aria-label="Slide 4"></button>
+      <button class="carousel-dot" data-idx="4" aria-label="Slide 5"></button>
+      <button class="carousel-dot" data-idx="5" aria-label="Slide 6"></button>
+      <button class="carousel-dot" data-idx="6" aria-label="Slide 7"></button>
+      <button class="carousel-dot" data-idx="7" aria-label="Slide 8"></button>
+      <button class="carousel-dot" data-idx="8" aria-label="Slide 9"></button>
+      <button class="carousel-dot" data-idx="9" aria-label="Slide 10"></button>
+      <button class="carousel-dot" data-idx="10" aria-label="Slide 11"></button>
+      <button class="carousel-dot" data-idx="11" aria-label="Slide 12"></button>
+      <button class="carousel-dot" data-idx="12" aria-label="Slide 13"></button>
+      <button class="carousel-dot" data-idx="13" aria-label="Slide 14"></button>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px">
+      <span class="carousel-counter" id="carouselCounter">1 / 14</span>
+      <div class="carousel-arrows">
+        <button class="carousel-btn" id="carouselPrev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-btn" id="carouselNext" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
   </div>
+
+  <script>
+  (function(){
+    const track   = document.getElementById('galleryTrack');
+    const dots    = document.querySelectorAll('.carousel-dot');
+    const counter = document.getElementById('carouselCounter');
+    const total   = 14;
+    let current   = 0;
+    let autoTimer;
+
+    function getSlidesVisible(){
+      const w = window.innerWidth;
+      if(w >= 1024) return 3;
+      if(w >= 768)  return 2;
+      return 1;
+    }
+
+    function goTo(idx){
+      const visible = getSlidesVisible();
+      const maxIdx  = total - visible;
+      current = Math.max(0, Math.min(idx, maxIdx));
+      const pct = (100 / visible) * current;
+      track.style.transform = `translateX(-${pct}%)`;
+      dots.forEach((d,i) => d.classList.toggle('active', i === current));
+      counter.textContent = `${current + 1} / ${total}`;
+    }
+
+    document.getElementById('carouselNext').addEventListener('click', () => {
+      goTo(current + 1 >= total - getSlidesVisible() + 1 ? 0 : current + 1);
+      resetAuto();
+    });
+    document.getElementById('carouselPrev').addEventListener('click', () => {
+      goTo(current - 1 < 0 ? total - getSlidesVisible() : current - 1);
+      resetAuto();
+    });
+    dots.forEach(d => d.addEventListener('click', () => {
+      goTo(parseInt(d.dataset.idx));
+      resetAuto();
+    }));
+
+    // Touch/swipe support
+    let startX = 0;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+    track.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if(Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+      resetAuto();
+    });
+
+    function resetAuto(){
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => goTo(current + 1 >= total - getSlidesVisible() + 1 ? 0 : current + 1), 5000);
+    }
+
+    window.addEventListener('resize', () => goTo(current));
+    goTo(0);
+    resetAuto();
+  })();
+  </script>
 </section>
 
 <!-- ══ ABOUT ══ -->
@@ -1007,5 +1233,19 @@ footer{
   </div>
 </footer>
 
+<script>
+(function(){
+  var btn = document.getElementById('mobileToggle');
+  var nav = btn ? btn.closest('nav') : null;
+  if(!btn || !nav) return;
+  btn.addEventListener('click', function(){
+    nav.classList.toggle('nav-mobile-open');
+  });
+  // Close on link click
+  nav.querySelectorAll('.nav-link, .nav-cta').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('nav-mobile-open'); });
+  });
+})();
+</script>
 </body>
 </html>
