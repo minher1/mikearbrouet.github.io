@@ -2485,93 +2485,62 @@
 
 
         // ── Gallery Carousel ───────────────────────────────────────────────
-        window.addEventListener('load', function() {
-            // Get all elements
-            const mainImg = document.getElementById('carousel-main-image');
-            const captionDiv = document.getElementById('carousel-caption');
-            const currentNum = document.getElementById('carousel-current');
-            const totalNum = document.getElementById('carousel-total');
-            const allThumbs = document.querySelectorAll('.thumbnail');
-            const prevButton = document.querySelector('.carousel-prev');
-            const nextButton = document.querySelector('.carousel-next');
+        (function() {
+            var mainImg = document.getElementById('carousel-main-image');
+            var captionDiv = document.getElementById('carousel-caption');
+            var currentNum = document.getElementById('carousel-current');
+            var totalNum = document.getElementById('carousel-total');
+            var allThumbs = document.querySelectorAll('.thumbnail');
+            var prevButton = document.querySelector('.carousel-prev');
+            var nextButton = document.querySelector('.carousel-next');
             
-            // Safety check
             if (!mainImg || allThumbs.length === 0) {
-                console.error('Carousel not initialized - missing elements');
                 return;
             }
             
-            let currentIdx = 0;
-            const totalImgs = allThumbs.length;
+            var currentIdx = 0;
+            var totalImgs = allThumbs.length;
             
-            // Set total count
             if (totalNum) totalNum.textContent = totalImgs;
             
-            // Function to change image
             function showImage(index) {
                 currentIdx = index;
-                const thumb = allThumbs[index];
+                var thumb = allThumbs[index];
+                var imgSrc = thumb.getAttribute('data-src');
+                var imgCaption = thumb.getAttribute('data-caption');
                 
-                // Get data from thumbnail
-                const imgSrc = thumb.getAttribute('data-src');
-                const imgCaption = thumb.getAttribute('data-caption');
-                
-                // Update main image
                 mainImg.src = imgSrc;
-                mainImg.alt = imgCaption;
-                
-                // Update caption
                 if (captionDiv) captionDiv.textContent = imgCaption;
-                
-                // Update counter
                 if (currentNum) currentNum.textContent = index + 1;
                 
-                // Update active state
-                allThumbs.forEach(function(t) {
-                    t.classList.remove('active');
-                });
+                for (var i = 0; i < allThumbs.length; i++) {
+                    allThumbs[i].classList.remove('active');
+                }
                 thumb.classList.add('active');
-                
-                // Scroll thumbnail into view
-                thumb.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest',
-                    inline: 'center'
-                });
             }
             
-            // Add click handlers to thumbnails
-            allThumbs.forEach(function(thumb, index) {
-                thumb.addEventListener('click', function() {
-                    showImage(index);
-                });
-            });
+            for (var i = 0; i < allThumbs.length; i++) {
+                (function(index) {
+                    allThumbs[index].addEventListener('click', function() {
+                        showImage(index);
+                    });
+                })(i);
+            }
             
-            // Previous button
             if (prevButton) {
                 prevButton.addEventListener('click', function() {
-                    const newIdx = (currentIdx === 0) ? (totalImgs - 1) : (currentIdx - 1);
+                    var newIdx = (currentIdx === 0) ? (totalImgs - 1) : (currentIdx - 1);
                     showImage(newIdx);
                 });
             }
             
-            // Next button
             if (nextButton) {
                 nextButton.addEventListener('click', function() {
-                    const newIdx = (currentIdx === totalImgs - 1) ? 0 : (currentIdx + 1);
+                    var newIdx = (currentIdx === totalImgs - 1) ? 0 : (currentIdx + 1);
                     showImage(newIdx);
                 });
             }
-            
-            // Keyboard support
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'ArrowLeft' && prevButton) {
-                    prevButton.click();
-                } else if (e.key === 'ArrowRight' && nextButton) {
-                    nextButton.click();
-                }
-            });
-        });
+        })();
 
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
