@@ -2485,7 +2485,7 @@
 
 
         // ── Gallery Carousel ───────────────────────────────────────────────
-        (function() {
+        document.addEventListener('DOMContentLoaded', function() {
             const mainImage = document.getElementById('carousel-main-image');
             const caption = document.getElementById('carousel-caption');
             const currentSpan = document.getElementById('carousel-current');
@@ -2494,23 +2494,45 @@
             const prevBtn = document.querySelector('.carousel-prev');
             const nextBtn = document.querySelector('.carousel-next');
             
-            if (!mainImage || !thumbnails.length) return;
+            console.log('Carousel initialized:', {
+                mainImage: !!mainImage,
+                caption: !!caption,
+                thumbnailCount: thumbnails.length,
+                prevBtn: !!prevBtn,
+                nextBtn: !!nextBtn
+            });
+            
+            if (!mainImage || !thumbnails.length) {
+                console.error('Carousel elements missing!');
+                return;
+            }
 
             let currentIndex = 0;
             const totalImages = thumbnails.length;
             
-            totalSpan.textContent = totalImages;
+            if (totalSpan) totalSpan.textContent = totalImages;
 
             function updateCarousel(index) {
+                console.log('Updating carousel to index:', index);
                 currentIndex = index;
                 const thumb = thumbnails[index];
                 
+                if (!thumb) {
+                    console.error('Thumbnail not found at index:', index);
+                    return;
+                }
+                
                 // Update main image
-                mainImage.src = thumb.dataset.src;
-                caption.textContent = thumb.dataset.caption;
+                const newSrc = thumb.getAttribute('data-src');
+                const newCaption = thumb.getAttribute('data-caption');
+                
+                console.log('New image:', newSrc);
+                
+                mainImage.src = newSrc;
+                if (caption) caption.textContent = newCaption;
                 
                 // Update counter
-                currentSpan.textContent = index + 1;
+                if (currentSpan) currentSpan.textContent = index + 1;
                 
                 // Update active thumbnail
                 thumbnails.forEach(t => t.classList.remove('active'));
@@ -2522,30 +2544,44 @@
 
             // Thumbnail clicks
             thumbnails.forEach((thumb, idx) => {
-                thumb.addEventListener('click', () => updateCarousel(idx));
+                thumb.addEventListener('click', function(e) {
+                    console.log('Thumbnail clicked:', idx);
+                    e.preventDefault();
+                    updateCarousel(idx);
+                });
             });
 
             // Previous button
-            prevBtn?.addEventListener('click', () => {
-                const newIndex = currentIndex === 0 ? totalImages - 1 : currentIndex - 1;
-                updateCarousel(newIndex);
-            });
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function(e) {
+                    console.log('Prev button clicked');
+                    e.preventDefault();
+                    const newIndex = currentIndex === 0 ? totalImages - 1 : currentIndex - 1;
+                    updateCarousel(newIndex);
+                });
+            }
 
             // Next button
-            nextBtn?.addEventListener('click', () => {
-                const newIndex = currentIndex === totalImages - 1 ? 0 : currentIndex + 1;
-                updateCarousel(newIndex);
-            });
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function(e) {
+                    console.log('Next button clicked');
+                    e.preventDefault();
+                    const newIndex = currentIndex === totalImages - 1 ? 0 : currentIndex + 1;
+                    updateCarousel(newIndex);
+                });
+            }
 
             // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') {
-                    prevBtn?.click();
-                } else if (e.key === 'ArrowRight') {
-                    nextBtn?.click();
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft' && prevBtn) {
+                    prevBtn.click();
+                } else if (e.key === 'ArrowRight' && nextBtn) {
+                    nextBtn.click();
                 }
             });
-        })();
+            
+            console.log('Carousel setup complete');
+        });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
